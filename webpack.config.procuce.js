@@ -1,26 +1,28 @@
-/**
- * @Author: Neeze@ZJS
- * @Date:   2017-11-29
- * @Email:  543457946@qq.com
- * @description: webpack produce config
- * @Last modified by:   Neeze@ZJS
- * @Last modified time: 2017-11-30
- */
+/*
+* @Author: Neeze@ZJS
+* @Date:   2017-11-29
+* @Email:  543457946@qq.com
+* @Description: webpack's producing config file
+* @Last Modified by:   Neeze@ZJS
+* @Last Modified time: 2017-12-24
+*/
+
 /* dependencies */
-import {
+const {
     resolve,
     entry,
-    output,
+    proOutput,
     loaders,
     plugins,
     _ExcludeReg
-} from "./webpack.config.base.js";
+} = require("./webpack.config.base.js");
 const CleanwebpackPlugin = require("clean-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const path = require("path");
 const webpack = require("webpack");
 
 let proPlugins = [
-    new CleanwebpackPlugin(["../dist"]),
+    new CleanwebpackPlugin([path.resolve(__dirname, "./dist")]),
     new OptimizeCssAssetsPlugin({
         cssProcessorOptions: {
             discardComments: {
@@ -36,11 +38,13 @@ let proPlugins = [
     })
 ];
 proPlugins = plugins.concat(proPlugins);
+
+// loaders
 let proLoaders = [
     {
         /* react jsx */
         test: /\.js[x]?$/,
-        loader: ["license-loader", "babel-loader"],
+        loader: ["babel-loader"],
         exclude: _ExcludeReg
     }
 ];

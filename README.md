@@ -1,2 +1,15 @@
 # werun001
-What I test to do when I am a werun guy!
+**我在werun创建的第一个模板工程，希望能给将来的前端学弟和github的前端初学者有些许帮助**
+
+**如果大腿看了我这个比较简陋的工程，莫名想笑的话，请邮件我下，我正为实验室前端发展而抓耳挠少，我想能从更多的人学到更多前端的东西**
+
+## 拷贝工程
+使用`git clone` 到本地
+
+执行`npm i`
+
+## 开发环境
+`npm run dev`
+
+## 发布环境
+`npm run build`

@@ -19,10 +19,11 @@ const {
 } = require("./webpack.config.base.js");
 const WebpackMonitor = require("webpack-monitor");
 const webpack = require("webpack");
+const path = require("path");
 
 let devPlugins = [
     new WebpackMonitor({
-        target: "./monitor/stats.json"
+        target: path.resolve(__dirname, "./monitor/stats.json")
     }),
     new webpack.EnvironmentPlugin({
         WEBPACK_ENV: "dev"
@@ -33,7 +34,7 @@ let devLoaders = [
     {
         /* react jsx */
         test: /\.js[x]?$/,
-        loader: ["react-hot", "babel-loader"],
+        loader: ["babel-loader"],
         exclude: _ExcludeReg
     },
     {
@@ -50,7 +51,7 @@ module.exports = {
     devtool: "cheap-module-eval-source-map",
     resolve,
     entry,
-    output,
+    output: devOutput,
     module: {
         loaders: devLoaders
     },

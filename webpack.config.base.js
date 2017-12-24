@@ -57,12 +57,12 @@ const entry = {
 
 /** output options */
 const devOutput = {
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "./dist"),
     publicPath: "/",
     filename: "javascript/[name].[chunkHash].js"
 };
 const proOutput = {
-    path: path.resolve(__dirname, "../dist"),
+    path: path.resolve(__dirname, "./dist"),
     publicPath: "./",
     filename: "javascript/[name].[chunkHash].js"
 };
@@ -124,7 +124,7 @@ const plugins = [
     }),
     new HtmlWebpackPlugin({
         showErrors: false,
-        template: path.resolve(__dirname, "../src/client/template/index.html"), //网页原型
+        template: path.resolve(__dirname, "./src/client/template/index.html"), //网页原型
         filename: "./index.html", // 登陆
         chunks: ["react_bundle", "index"]
     })

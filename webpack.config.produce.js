@@ -54,7 +54,7 @@ module.exports = {
     resolve,
     devtool: "cheap-module-source-map",
     entry,
-    output,
+    output: proOutput,
     module: {
         loaders: proLoaders
     },

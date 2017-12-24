@@ -20,7 +20,7 @@ const _ExcludeReg = /(node_modules|bower_components)/;
 
 /** devServer options */
 const devServer = {
-    port: 9000,
+    port: 8000,
     // if "open" values "true", it will open default web browser for you automaticly
     open: false,
     openPage: "./index.html",
@@ -46,12 +46,12 @@ const devServer = {
 
 /** resolve options */
 const resolve = {
-    extensions: ["", ".js", ".jsx", ".scss", ".css", "*"]
+    extensions: ["*", ".js", ".jsx", ".scss", ".css"]
 };
 
 /** entry options */
 const entry = {
-    index: path.resolve(__dirname, "./src/index.jsx"),
+    // index: path.resolve(__dirname, "./src/index.jsx"),
     react_bundle: ["react", "react-dom", "prop-types"]
 };
 
@@ -121,13 +121,13 @@ const plugins = [
         name: ["react_bundle"],
         filename: "js/[name].js",
         minChunks: Infinity
-    }),
-    new HtmlWebpackPlugin({
-        showErrors: false,
-        template: path.resolve(__dirname, "./src/client/template/index.html"), //网页原型
-        filename: "./index.html", // 登陆
-        chunks: ["react_bundle", "index"]
     })
+    // new HtmlWebpackPlugin({
+    //     showErrors: false,
+    //     template: path.resolve(__dirname, "./src/client/template/index.html"), //网页原型
+    //     filename: "./index.html", // 登陆
+    //     chunks: ["react_bundle", "index"]
+    // })
 ];
 
 /** exclude path regulation option */

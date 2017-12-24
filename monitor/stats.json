@@ -1,0 +1,598 @@
+[
+  {
+    "timeStamp": 1514128666199,
+    "time": 2572,
+    "hash": "427630d6d5a2faef119c",
+    "errors": [],
+    "size": 2790500,
+    "assets": [
+      {
+        "name": "js/react_bundle.js",
+        "chunks": [
+          0
+        ],
+        "size": 2790500,
+        "miniSize": 2789343,
+        "minified": false
+      }
+    ],
+    "chunks": [
+      {
+        "size": 1062141,
+        "files": [
+          "js/react_bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "(webpack)/node_modules/process/browser.js",
+            "size": 5418,
+            "id": 0
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyFunction.js",
+            "size": 959,
+            "id": 1
+          },
+          {
+            "name": "./node_modules/object-assign/index.js",
+            "size": 2108,
+            "id": 2
+          },
+          {
+            "name": "./node_modules/fbjs/lib/invariant.js",
+            "size": 1506,
+            "id": 3
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyObject.js",
+            "size": 332,
+            "id": 4
+          },
+          {
+            "name": "./node_modules/fbjs/lib/warning.js",
+            "size": 1897,
+            "id": 5
+          },
+          {
+            "name": "./node_modules/react/index.js",
+            "size": 190,
+            "id": 6
+          },
+          {
+            "name": "./node_modules/prop-types/checkPropTypes.js",
+            "size": 2873,
+            "id": 7
+          },
+          {
+            "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+            "size": 314,
+            "id": 8
+          },
+          {
+            "name": "(webpack)/buildin/global.js",
+            "size": 488,
+            "id": 9
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/html-entities/lib/html5-entities.js",
+            "size": 48986,
+            "id": 10
+          },
+          {
+            "name": "./node_modules/fbjs/lib/ExecutionEnvironment.js",
+            "size": 935,
+            "id": 11
+          },
+          {
+            "name": "./node_modules/fbjs/lib/EventListener.js",
+            "size": 2248,
+            "id": 12
+          },
+          {
+            "name": "./node_modules/fbjs/lib/getActiveElement.js",
+            "size": 912,
+            "id": 13
+          },
+          {
+            "name": "./node_modules/fbjs/lib/shallowEqual.js",
+            "size": 1616,
+            "id": 14
+          },
+          {
+            "name": "./node_modules/fbjs/lib/containsNode.js",
+            "size": 923,
+            "id": 15
+          },
+          {
+            "name": "./node_modules/fbjs/lib/focusNode.js",
+            "size": 578,
+            "id": 16
+          },
+          {
+            "name": "multi (webpack)-dev-server/client?http://localhost:8000 react react-dom prop-types",
+            "size": 64,
+            "id": 17
+          },
+          {
+            "name": "(webpack)-dev-server/client?http://localhost:8000",
+            "size": 7952,
+            "id": 18
+          },
+          {
+            "name": "(webpack)/node_modules/url/url.js",
+            "size": 23317,
+            "id": 19
+          },
+          {
+            "name": "(webpack)/node_modules/punycode/punycode.js",
+            "size": 14670,
+            "id": 20
+          },
+          {
+            "name": "(webpack)/buildin/module.js",
+            "size": 495,
+            "id": 21
+          },
+          {
+            "name": "(webpack)/node_modules/url/util.js",
+            "size": 314,
+            "id": 22
+          },
+          {
+            "name": "(webpack)/node_modules/querystring-es3/index.js",
+            "size": 127,
+            "id": 23
+          },
+          {
+            "name": "(webpack)/node_modules/querystring-es3/decode.js",
+            "size": 2510,
+            "id": 24
+          },
+          {
+            "name": "(webpack)/node_modules/querystring-es3/encode.js",
+            "size": 2544,
+            "id": 25
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/strip-ansi/index.js",
+            "size": 161,
+            "id": 26
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/ansi-regex/index.js",
+            "size": 135,
+            "id": 27
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/loglevel/lib/loglevel.js",
+            "size": 7862,
+            "id": 28
+          },
+          {
+            "name": "(webpack)-dev-server/client/socket.js",
+            "size": 1051,
+            "id": 29
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/sockjs-client/dist/sockjs.js",
+            "size": 180708,
+            "id": 30
+          },
+          {
+            "name": "(webpack)-dev-server/client/overlay.js",
+            "size": 3728,
+            "id": 31
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/ansi-html/index.js",
+            "size": 4263,
+            "id": 32
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/html-entities/index.js",
+            "size": 231,
+            "id": 33
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/html-entities/lib/xml-entities.js",
+            "size": 2993,
+            "id": 34
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/html-entities/lib/html4-entities.js",
+            "size": 6587,
+            "id": 35
+          },
+          {
+            "name": "(webpack)/hot nonrecursive ^\\.\\/log$",
+            "size": 170,
+            "id": 36
+          },
+          {
+            "name": "(webpack)/hot/log.js",
+            "size": 1000,
+            "id": 37
+          },
+          {
+            "name": "(webpack)/hot/emitter.js",
+            "size": 75,
+            "id": 38
+          },
+          {
+            "name": "(webpack)/node_modules/events/events.js",
+            "size": 8328,
+            "id": 39
+          },
+          {
+            "name": "./node_modules/react/cjs/react.production.min.js",
+            "size": 5412,
+            "id": 40
+          },
+          {
+            "name": "./node_modules/react/cjs/react.development.js",
+            "size": 45158,
+            "id": 41
+          },
+          {
+            "name": "./node_modules/react-dom/index.js",
+            "size": 1363,
+            "id": 42
+          },
+          {
+            "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
+            "size": 92699,
+            "id": 43
+          },
+          {
+            "name": "./node_modules/fbjs/lib/isTextNode.js",
+            "size": 479,
+            "id": 44
+          },
+          {
+            "name": "./node_modules/fbjs/lib/isNode.js",
+            "size": 702,
+            "id": 45
+          },
+          {
+            "name": "./node_modules/react-dom/cjs/react-dom.development.js",
+            "size": 549486,
+            "id": 46
+          },
+          {
+            "name": "./node_modules/fbjs/lib/hyphenateStyleName.js",
+            "size": 848,
+            "id": 47
+          },
+          {
+            "name": "./node_modules/fbjs/lib/hyphenate.js",
+            "size": 674,
+            "id": 48
+          },
+          {
+            "name": "./node_modules/fbjs/lib/camelizeStyleName.js",
+            "size": 875,
+            "id": 49
+          },
+          {
+            "name": "./node_modules/fbjs/lib/camelize.js",
+            "size": 582,
+            "id": 50
+          },
+          {
+            "name": "./node_modules/prop-types/index.js",
+            "size": 956,
+            "id": 51
+          },
+          {
+            "name": "./node_modules/prop-types/factoryWithTypeCheckers.js",
+            "size": 19847,
+            "id": 52
+          },
+          {
+            "name": "./node_modules/prop-types/factoryWithThrowingShims.js",
+            "size": 1492,
+            "id": 53
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "timeStamp": 1514130284618,
+    "time": 1458,
+    "hash": "427630d6d5a2faef119c",
+    "errors": [],
+    "size": 2775302,
+    "assets": [
+      {
+        "name": "js/react_bundle.js",
+        "chunks": [
+          0
+        ],
+        "size": 2775302,
+        "miniSize": 2774307,
+        "minified": false
+      }
+    ],
+    "chunks": [
+      {
+        "size": 1062141,
+        "files": [
+          "js/react_bundle.js"
+        ],
+        "modules": [
+          {
+            "name": "(webpack)/node_modules/process/browser.js",
+            "size": 5418,
+            "id": 0
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyFunction.js",
+            "size": 959,
+            "id": 1
+          },
+          {
+            "name": "./node_modules/object-assign/index.js",
+            "size": 2108,
+            "id": 2
+          },
+          {
+            "name": "./node_modules/fbjs/lib/invariant.js",
+            "size": 1506,
+            "id": 3
+          },
+          {
+            "name": "./node_modules/fbjs/lib/emptyObject.js",
+            "size": 332,
+            "id": 4
+          },
+          {
+            "name": "./node_modules/fbjs/lib/warning.js",
+            "size": 1897,
+            "id": 5
+          },
+          {
+            "name": "./node_modules/react/index.js",
+            "size": 190,
+            "id": 6
+          },
+          {
+            "name": "./node_modules/prop-types/checkPropTypes.js",
+            "size": 2873,
+            "id": 7
+          },
+          {
+            "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+            "size": 314,
+            "id": 8
+          },
+          {
+            "name": "(webpack)/buildin/global.js",
+            "size": 488,
+            "id": 9
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/html-entities/lib/html5-entities.js",
+            "size": 48986,
+            "id": 10
+          },
+          {
+            "name": "./node_modules/fbjs/lib/ExecutionEnvironment.js",
+            "size": 935,
+            "id": 11
+          },
+          {
+            "name": "./node_modules/fbjs/lib/EventListener.js",
+            "size": 2248,
+            "id": 12
+          },
+          {
+            "name": "./node_modules/fbjs/lib/getActiveElement.js",
+            "size": 912,
+            "id": 13
+          },
+          {
+            "name": "./node_modules/fbjs/lib/shallowEqual.js",
+            "size": 1616,
+            "id": 14
+          },
+          {
+            "name": "./node_modules/fbjs/lib/containsNode.js",
+            "size": 923,
+            "id": 15
+          },
+          {
+            "name": "./node_modules/fbjs/lib/focusNode.js",
+            "size": 578,
+            "id": 16
+          },
+          {
+            "name": "multi (webpack)-dev-server/client?http://localhost:8000 react react-dom prop-types",
+            "size": 64,
+            "id": 17
+          },
+          {
+            "name": "(webpack)-dev-server/client?http://localhost:8000",
+            "size": 7952,
+            "id": 18
+          },
+          {
+            "name": "(webpack)/node_modules/url/url.js",
+            "size": 23317,
+            "id": 19
+          },
+          {
+            "name": "(webpack)/node_modules/punycode/punycode.js",
+            "size": 14670,
+            "id": 20
+          },
+          {
+            "name": "(webpack)/buildin/module.js",
+            "size": 495,
+            "id": 21
+          },
+          {
+            "name": "(webpack)/node_modules/url/util.js",
+            "size": 314,
+            "id": 22
+          },
+          {
+            "name": "(webpack)/node_modules/querystring-es3/index.js",
+            "size": 127,
+            "id": 23
+          },
+          {
+            "name": "(webpack)/node_modules/querystring-es3/decode.js",
+            "size": 2510,
+            "id": 24
+          },
+          {
+            "name": "(webpack)/node_modules/querystring-es3/encode.js",
+            "size": 2544,
+            "id": 25
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/strip-ansi/index.js",
+            "size": 161,
+            "id": 26
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/ansi-regex/index.js",
+            "size": 135,
+            "id": 27
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/loglevel/lib/loglevel.js",
+            "size": 7862,
+            "id": 28
+          },
+          {
+            "name": "(webpack)-dev-server/client/socket.js",
+            "size": 1051,
+            "id": 29
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/sockjs-client/dist/sockjs.js",
+            "size": 180708,
+            "id": 30
+          },
+          {
+            "name": "(webpack)-dev-server/client/overlay.js",
+            "size": 3728,
+            "id": 31
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/ansi-html/index.js",
+            "size": 4263,
+            "id": 32
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/html-entities/index.js",
+            "size": 231,
+            "id": 33
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/html-entities/lib/xml-entities.js",
+            "size": 2993,
+            "id": 34
+          },
+          {
+            "name": "(webpack)-dev-server/node_modules/html-entities/lib/html4-entities.js",
+            "size": 6587,
+            "id": 35
+          },
+          {
+            "name": "(webpack)/hot nonrecursive ^\\.\\/log$",
+            "size": 170,
+            "id": 36
+          },
+          {
+            "name": "(webpack)/hot/log.js",
+            "size": 1000,
+            "id": 37
+          },
+          {
+            "name": "(webpack)/hot/emitter.js",
+            "size": 75,
+            "id": 38
+          },
+          {
+            "name": "(webpack)/node_modules/events/events.js",
+            "size": 8328,
+            "id": 39
+          },
+          {
+            "name": "./node_modules/react/cjs/react.production.min.js",
+            "size": 5412,
+            "id": 40
+          },
+          {
+            "name": "./node_modules/react/cjs/react.development.js",
+            "size": 45158,
+            "id": 41
+          },
+          {
+            "name": "./node_modules/react-dom/index.js",
+            "size": 1363,
+            "id": 42
+          },
+          {
+            "name": "./node_modules/react-dom/cjs/react-dom.production.min.js",
+            "size": 92699,
+            "id": 43
+          },
+          {
+            "name": "./node_modules/fbjs/lib/isTextNode.js",
+            "size": 479,
+            "id": 44
+          },
+          {
+            "name": "./node_modules/fbjs/lib/isNode.js",
+            "size": 702,
+            "id": 45
+          },
+          {
+            "name": "./node_modules/react-dom/cjs/react-dom.development.js",
+            "size": 549486,
+            "id": 46
+          },
+          {
+            "name": "./node_modules/fbjs/lib/hyphenateStyleName.js",
+            "size": 848,
+            "id": 47
+          },
+          {
+            "name": "./node_modules/fbjs/lib/hyphenate.js",
+            "size": 674,
+            "id": 48
+          },
+          {
+            "name": "./node_modules/fbjs/lib/camelizeStyleName.js",
+            "size": 875,
+            "id": 49
+          },
+          {
+            "name": "./node_modules/fbjs/lib/camelize.js",
+            "size": 582,
+            "id": 50
+          },
+          {
+            "name": "./node_modules/prop-types/index.js",
+            "size": 956,
+            "id": 51
+          },
+          {
+            "name": "./node_modules/prop-types/factoryWithTypeCheckers.js",
+            "size": 19847,
+            "id": 52
+          },
+          {
+            "name": "./node_modules/prop-types/factoryWithThrowingShims.js",
+            "size": 1492,
+            "id": 53
+          }
+        ]
+      }
+    ]
+  }
+]

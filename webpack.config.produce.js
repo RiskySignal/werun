@@ -4,7 +4,7 @@
 * @Email:  543457946@qq.com
 * @Description: webpack's producing config file
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2017-12-24
+* @Last Modified time: 2018-01-15
 */
 
 /* dependencies */
@@ -39,24 +39,13 @@ let proPlugins = [
 ];
 proPlugins = plugins.concat(proPlugins);
 
-// loaders
-let proLoaders = [
-    {
-        /* react jsx */
-        test: /\.js[x]?$/,
-        loader: ["babel-loader"],
-        exclude: _ExcludeReg
-    }
-];
-proLoaders = loaders.concat(proLoaders);
-
 module.exports = {
     resolve,
     devtool: "cheap-module-source-map",
     entry,
     output: proOutput,
     module: {
-        loaders: proLoaders
+        loaders
     },
     plugins: proPlugins
 };

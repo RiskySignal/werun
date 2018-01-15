@@ -5,7 +5,7 @@
 * @Description: webpack's basic config file
 * you should alter entries and basic setting in the file, so you don't need to do so both in dev and produce config file
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2017-12-24
+* @Last Modified time: 2018-01-15
 */
 
 /** @dependencies */
@@ -37,11 +37,8 @@ const devServer = {
     // noinfo: true,
 
     // use https in developing enviroment
-    // https: {
-    //     cert: fs.readFileSync("path-to-cert-file.pem"),
-    //     key: fs.readFileSync("path-to-key-file.pem"),
-    //     cacert: fs.readFileSync("path-to-cacert-file.pem")
-    // }
+    // 根据webpack默认配置无法实现https
+    // https: true
 };
 
 /** resolve options */
@@ -51,8 +48,12 @@ const resolve = {
 
 /** entry options */
 const entry = {
-    // index: path.resolve(__dirname, "./src/index.jsx"),
-    react_bundle: ["react", "react-dom", "prop-types"]
+    login: path.resolve(__dirname, "./src/client/page/login/login.jsx"),
+    react_bundle: ["react", "react-dom", "prop-types"],
+    html5shiv: path.resolve(
+        __dirname,
+        "./src/static-source/js/html5shiv.min.js"
+    )
 };
 
 /** output options */
@@ -78,6 +79,19 @@ const loaders = [
             use: ["css-loader", "postcss-loader", "sass-loader"],
             publicPath: "../"
         })
+    },
+    {
+        /* react jsx */
+        test: /\.js[x]?$/,
+        loader: "babel-loader",
+        exclude: _ExcludeReg,
+        query: {
+            presets: ["react", "es2015"],
+            plugins: [
+                "transform-export-extensions",
+                "transform-class-properties"
+            ]
+        }
     },
     {
         /* css */
@@ -121,13 +135,16 @@ const plugins = [
         name: ["react_bundle"],
         filename: "js/[name].js",
         minChunks: Infinity
+    }),
+    new HtmlWebpackPlugin({
+        showErrors: false,
+        template: path.resolve(
+            __dirname,
+            "./src/client/page/template/template.html"
+        ),
+        filename: "./login.html", // 登陆
+        chunks: ["react_bundle", "login"]
     })
-    // new HtmlWebpackPlugin({
-    //     showErrors: false,
-    //     template: path.resolve(__dirname, "./src/client/template/index.html"), //网页原型
-    //     filename: "./index.html", // 登陆
-    //     chunks: ["react_bundle", "index"]
-    // })
 ];
 
 /** exclude path regulation option */

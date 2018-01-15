@@ -4,7 +4,7 @@
 * @Email:  543457946@qq.com
 * @Description: webpack's devloping config file
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2017-12-24
+* @Last Modified time: 2018-01-15
 */
 
 /* dependencies */
@@ -31,12 +31,6 @@ let devPlugins = [
 ];
 devPlugins = devPlugins.concat(plugins);
 let devLoaders = [
-    {
-        /* react jsx */
-        test: /\.js[x]?$/,
-        loader: ["babel-loader"],
-        exclude: _ExcludeReg
-    },
     {
         /* json: static data to replace server data when development  */
         test: /\.json$/,

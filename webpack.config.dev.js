@@ -4,11 +4,12 @@
 * @Email:  543457946@qq.com
 * @Description: webpack's devloping config file
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-01-15
+* @Last Modified time: 2018-01-17
 */
+const bootstrapEntryPoints = require("./webpack.bootstrap.config.js");
 
 /* dependencies */
-const {
+let {
     devServer,
     resolve,
     entry,
@@ -30,6 +31,7 @@ let devPlugins = [
     })
 ];
 devPlugins = devPlugins.concat(plugins);
+
 let devLoaders = [
     {
         /* json: static data to replace server data when development  */
@@ -39,6 +41,8 @@ let devLoaders = [
     }
 ];
 devLoaders = loaders.concat(devLoaders);
+
+entry.bootstrap_bundle = bootstrapEntryPoints.dev;
 
 module.exports = {
     devServer,

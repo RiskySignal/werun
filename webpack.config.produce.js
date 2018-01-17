@@ -4,11 +4,12 @@
 * @Email:  543457946@qq.com
 * @Description: webpack's producing config file
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-01-15
+* @Last Modified time: 2018-01-17
 */
+const bootstrapEntryPoints = require("./webpack.bootstrap.config.js");
 
 /* dependencies */
-const {
+let {
     resolve,
     entry,
     proOutput,
@@ -38,6 +39,8 @@ let proPlugins = [
     })
 ];
 proPlugins = plugins.concat(proPlugins);
+
+entry.bootstrap_bundle = bootstrapEntryPoints.prod;
 
 module.exports = {
     resolve,

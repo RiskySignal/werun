@@ -7,6 +7,7 @@
 * @Last Modified time: 2018-01-17
 */
 import { WeRunTimeLoginBox } from "../../components/index.js";
+require("./login.scss");
 
 class Login extends React.Component {
 	constructor(props) {

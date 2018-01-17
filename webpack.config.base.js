@@ -5,14 +5,13 @@
 * @Description: webpack's basic config file
 * you should alter entries and basic setting in the file, so you don't need to do so both in dev and produce config file
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-01-15
+* @Last Modified time: 2018-01-18
 */
 
 /** @dependencies */
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-// const fs = require("fs");
 const path = require("path");
 
 /** exclude pattern */
@@ -50,10 +49,10 @@ const resolve = {
 const entry = {
     login: path.resolve(__dirname, "./src/client/page/login/login.jsx"),
     react_bundle: ["react", "react-dom", "prop-types"],
-    html5shiv: path.resolve(
-        __dirname,
-        "./src/static-source/js/html5shiv.min.js"
-    )
+    jquery_bundle: "jquery",
+    tether_bundle: "tether",
+    popper_bundle: "popper.js",
+    bootstrap_bundle: null
 };
 
 /** output options */
@@ -83,9 +82,10 @@ const loaders = [
     {
         /* react jsx */
         test: /\.js[x]?$/,
-        loader: "babel-loader",
         exclude: _ExcludeReg,
+        loader: "babel-loader",
         query: {
+            compact: false,
             presets: ["react", "es2015"],
             plugins: [
                 "transform-export-extensions",
@@ -129,10 +129,34 @@ const plugins = [
     new webpack.ProvidePlugin({
         React: "react",
         ReactDOM: "react-dom",
-        PropTypes: "prop-types"
+        PropTypes: "prop-types",
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+        Popper: "popper.js",
+        "window.Popper": "popper.js",
+        Tether: "tether",
+        "window.Tether": "tether",
+        Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
+        Button: "exports-loader?Button!bootstrap/js/dist/button",
+        Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
+        Collapse: "exports-loader?Collapse!bootstrap/js/dist/collapse",
+        Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
+        Modal: "exports-loader?Modal!bootstrap/js/dist/modal",
+        Popover: "exports-loader?Popover!bootstrap/js/dist/popover",
+        Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
+        Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
+        Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
+        Util: "exports-loader?Util!bootstrap/js/dist/util"
     }),
     new webpack.optimize.CommonsChunkPlugin({
-        name: ["react_bundle"],
+        name: [
+            "react_bundle",
+            "bootstrap_bundle",
+            "jquery_bundle",
+            "tether_bundle",
+            "popper_bundle"
+        ],
         filename: "js/[name].js",
         minChunks: Infinity
     }),
@@ -143,7 +167,14 @@ const plugins = [
             "./src/client/page/template/template.html"
         ),
         filename: "./login.html", // 登陆
-        chunks: ["react_bundle", "login"]
+        chunks: [
+            "jquery_bundle",
+            "tether_bundle",
+            "popper_bundle",
+            "bootstrap_bundle",
+            "react_bundle",
+            "login"
+        ]
     })
 ];
 

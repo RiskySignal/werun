@@ -9,14 +9,14 @@
 require("./WeRunTimeLoginBox.scss");
 var Panel = require("react-bootstrap/lib/Panel");
 
-class WeRunTimeLoginBox extends Component {
+class WeRunTimeLoginBox extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
 	render() {
 		return (
-			<Panel>
+			<Panel bsStyle="primary">
 				<Panel.Heading>头部</Panel.Heading>
 				<Panel.Body>尾部</Panel.Body>
 			</Panel>

@@ -5,7 +5,7 @@
 * @Description: webpack's basic config file
 * you should alter entries and basic setting in the file, so you don't need to do so both in dev and produce config file
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-01-18
+* @Last Modified time: 2018-03-08
 */
 
 /** @dependencies */
@@ -52,19 +52,20 @@ const entry = {
     jquery_bundle: "jquery",
     tether_bundle: "tether",
     popper_bundle: "popper.js",
+    werun: "./src/plugin/werun.js",
     bootstrap_bundle: null
 };
 
 /** output options */
 const devOutput = {
-    path: path.resolve(__dirname, "./dist"),
+    path: path.resolve(__dirname, "./dist/web"),
     publicPath: "/",
     filename: "javascript/[name].[chunkHash].js"
 };
 const proOutput = {
-    path: path.resolve(__dirname, "./dist"),
+    path: path.resolve(__dirname, "./dist/web"),
     publicPath: "./",
-    filename: "javascript/[name].[chunkHash].js"
+    filename: "javascript/[name].min.[chunkHash].js"
 };
 
 /** loaders options */

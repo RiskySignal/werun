@@ -4,7 +4,7 @@
 * @Email:  543457946@qq.com
 * @Description: webpack's producing config file
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-01-17
+* @Last Modified time: 2018-03-08
 */
 const bootstrapEntryPoints = require("./webpack.bootstrap.config.js");
 
@@ -23,7 +23,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 let proPlugins = [
-    new CleanwebpackPlugin([path.resolve(__dirname, "./dist")]),
+    new CleanwebpackPlugin([path.resolve(__dirname, "./dist/web")]),
     new OptimizeCssAssetsPlugin({
         cssProcessorOptions: {
             discardComments: {

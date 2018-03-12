@@ -7,5 +7,8 @@
 * @Last Modified time: 2018-03-12
 */
 define(["./core", "./date"], function(werun, date) {
+	werun();
+	console.log(werun.extend);
+
 	return werun;
 });

@@ -7,7 +7,10 @@
 * @Last Modified time: 2018-03-12
 */
 
-define(function() {
+define(["./var/isFunction", "./var/isPlainObject"], function(
+	isFunction,
+	isPlainObject
+) {
 	const version = "0.0.1",
 		// Define a local copy for Werun
 		Werun = function() {
@@ -46,5 +49,54 @@ define(function() {
 		if (typeof target !== "object" && !isFunction(target)) {
 			target = {};
 		}
+
+		// Extend Werun itself if only one argument is passed
+		if (i === length) {
+			target = this;
+			i--;
+		}
+
+		for (; i < length; i++) {
+			// Only deal with non-null/undefined values
+			if ((options = arguments[i]) != null) {
+				// Extend the base object
+				for (name in options) {
+					src = target[name];
+					copy = options[name];
+
+					// Prevent never-ending loop
+					if (target === copy) {
+						continue;
+					}
+
+					// Recurse if we're merging plain objects or arrays
+					if (
+						deep &&
+						copy &&
+						(isPlainObject(copy) ||
+							(copyIsArray = Array.isArray(copy)))
+					) {
+						if (copyIsArray) {
+							copyIsArray = false;
+							clone = src && Array.isArray(src) ? src : [];
+						} else {
+							clone = src && isPlainObject(src) ? src : {};
+						}
+
+						// Never move original objects, just clone them
+						target[name] = Werun.extend(deep, clone, copy);
+
+						// Don't bring in undefined values
+					} else if (copy !== undefined) {
+						target[name] = copy;
+					}
+				}
+			}
+		}
+
+		// Return the modified object
+		return target;
 	};
+
+	return Werun;
 });

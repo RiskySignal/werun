@@ -7,10 +7,8 @@
 * @Last Modified time: 2018-03-12
 */
 
-define(function(undefined) {
-	console.log("undefined? " + undefined);
-
-	let formater = function(setting, time) {
+define(function() {
+	return function formater(setting, time) {
 		let customDate = null;
 
 		/** initial */
@@ -33,7 +31,7 @@ define(function(undefined) {
 		};
 
 		/** year */
-		if (/[^\\]((?i)y+)/.test(setting)) {
+		if (/(y+)/i.test(setting)) {
 			setting = setting.replace(
 				RegExp.$1,
 				(customDate.getFullYear() + "").substr(4 - RegExp.$1.length)
@@ -41,13 +39,13 @@ define(function(undefined) {
 		}
 
 		/** day of a week */
-		if (/[^\\]((?i)d+)/.test(setting)) {
+		if (/D/.test(setting)) {
 			let day = customDate.getDay();
 			setting = setting.replace(RegExp.$1, day ? day : 7);
 		}
 
 		for (var k in o)
-			if (new RegExp("([^\\]" + k + ")").test(setting))
+			if (new RegExp("(" + k + ")").test(setting))
 				setting = setting.replace(
 					RegExp.$1,
 					RegExp.$1.length == 1
@@ -59,6 +57,4 @@ define(function(undefined) {
 
 		return setting;
 	};
-
-	return formater;
 });

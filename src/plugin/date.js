@@ -6,6 +6,6 @@
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-12
 */
-define("./core","./date/formater"], function( formater) {
+define(["./core", "./date/formater"], function(werun, formater) {
 	return formater;
 });

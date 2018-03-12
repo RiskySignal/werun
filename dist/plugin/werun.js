@@ -1,1 +1,8 @@
-function test(){return{name:"test"}}define("src/plugin/test",function(){}),require(["./test"],function(n){return console.log(n),{name:"werun"}}),define("src/plugin/werun",function(){});
+function test() {
+	return { name: "test" };
+}
+define("test", function() {}),
+	require(["./test"], function(e) {
+		return console.log(e), { name: "werun" };
+	}),
+	define("werun", function() {});

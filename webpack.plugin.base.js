@@ -36,6 +36,20 @@ const developConfig = {
 	module: {
 		loaders: [
 			{
+				/** inspect javascript codes before transforming */
+				enforce: "pre",
+				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: "eslint-loader",
+				options: {
+					cache: true,
+					failOnError: true,
+					emitWarning: true,
+					configFile: "./src/plugin/.eslintrc.js",
+					ignorePath: ".eslintignore"
+				}
+			},
+			{
 				/* transform es6 syntax */
 				test: /\.js$/,
 				exclude: /node_modules/,
@@ -77,7 +91,7 @@ const produceConfig = {
 			compress: {
 				drop_console: true // remove 'console' in .min.js
 			},
-			cache: true, // default cache directory `node_modules/.cache/uglifyjs-webpack-plugin`
+			cache: true,
 			parallel: true, // Enable parallelization
 			sourceMap: true,
 			ie8: true // enable IE8 support

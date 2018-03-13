@@ -86,8 +86,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 	// Define a local copy for Werun
 	Werun = function Werun() {
-		console.log("This is plugins for Werun!");
-
 		return this;
 	};
 
@@ -225,9 +223,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-13
 */
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(9)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (werun, date) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(9)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (werun) {
 	werun();
-	console.log(werun.extend);
 
 	return werun;
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),

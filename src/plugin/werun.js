@@ -6,9 +6,8 @@
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-13
 */
-define(["./core", "./date"], function(werun, date) {
+define(["./core", "./date"], function(werun) {
 	werun();
-	console.log(werun.extend);
 
 	return werun;
 });

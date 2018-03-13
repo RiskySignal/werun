@@ -14,8 +14,6 @@ define(["./var/isFunction", "./var/isPlainObject"], function(
 	const version = "0.0.1",
 		// Define a local copy for Werun
 		Werun = function() {
-			console.log("This is plugins for Werun!");
-
 			return this;
 		};
 

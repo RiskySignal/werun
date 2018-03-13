@@ -67,7 +67,12 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-12
 * @Email:  543457946@qq.com
@@ -76,34 +81,32 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 * @Last Modified time: 2018-03-12
 */
 
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(4), __webpack_require__(5)], __WEBPACK_AMD_DEFINE_RESULT__ = (function(
-	isFunction,
-	isPlainObject
-) {
-	const version = "0.0.1",
-		// Define a local copy for Werun
-		Werun = function() {
-			console.log("This is plugins for Werun!");
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(4), __webpack_require__(5)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (isFunction, isPlainObject) {
+	var version = "0.0.1",
 
-			return this;
-		};
+	// Define a local copy for Werun
+	Werun = function Werun() {
+		console.log("This is plugins for Werun!");
+
+		return this;
+	};
 
 	Werun.prototype = {
 		// The current version of Werun being used
 		werun: version
 	};
 
-	Werun.extend = function() {
-		let options,
-			name,
-			src,
-			copy,
-			copyIsArray,
-			clone,
-			target = arguments[0] || {},
-			i = 1,
-			length = arguments.length,
-			deep = false;
+	Werun.extend = function () {
+		var options = void 0,
+		    name = void 0,
+		    src = void 0,
+		    copy = void 0,
+		    copyIsArray = void 0,
+		    clone = void 0,
+		    target = arguments[0] || {},
+		    i = 1,
+		    length = arguments.length,
+		    deep = false;
 
 		// Handle a deep copy situation(The default copy is shallow copy)
 		if (typeof target === "boolean") {
@@ -115,7 +118,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 		}
 
 		// Handle case when target is a string or something (possible in deep copy)
-		if (typeof target !== "object" && !isFunction(target)) {
+		if ((typeof target === "undefined" ? "undefined" : _typeof(target)) !== "object" && !isFunction(target)) {
 			target = {};
 		}
 
@@ -139,12 +142,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 					}
 
 					// Recurse if we're merging plain objects or arrays
-					if (
-						deep &&
-						copy &&
-						(isPlainObject(copy) ||
-							(copyIsArray = Array.isArray(copy)))
-					) {
+					if (deep && copy && (isPlainObject(copy) || (copyIsArray = Array.isArray(copy)))) {
 						if (copyIsArray) {
 							copyIsArray = false;
 							clone = src && Array.isArray(src) ? src : [];
@@ -171,12 +169,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
-
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_RESULT__;
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-12
 * @Email:  543457946@qq.com
@@ -184,18 +184,20 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-12
 */
-!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 	// [[Class]] -> type pairs
 	return {};
 }).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
-
 /***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-12
 * @Email:  543457946@qq.com
@@ -203,17 +205,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-12
 */
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_RESULT__ = (function(class2type) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (class2type) {
 	return class2type.hasOwnProperty;
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-11
 * @Email:  543457946@qq.com
@@ -221,7 +225,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-12
 */
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(9)], __WEBPACK_AMD_DEFINE_RESULT__ = (function(werun, date) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(9)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (werun, date) {
 	werun();
 	console.log(werun.extend);
 
@@ -229,12 +233,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
-
 /***/ }),
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_RESULT__;
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-12
 * @Email:  543457946@qq.com
@@ -242,7 +248,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-12
 */
-!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 	return function isFunction(obj) {
 		// Support: Chrome <=57, Firefox <=52
 		// In some browsers, typeof returns "function" for HTML <object> elements
@@ -253,12 +259,14 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 }).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
-
 /***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-12
 * @Email:  543457946@qq.com
@@ -266,15 +274,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-12
 */
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(6), __webpack_require__(7), __webpack_require__(2), __webpack_require__(8)], __WEBPACK_AMD_DEFINE_RESULT__ = (function(
-	toString,
-	getProto,
-	hasOwn,
-	fnToString,
-	ObjectFunctionString
-) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(6), __webpack_require__(7), __webpack_require__(2), __webpack_require__(8)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (toString, getProto, hasOwn, fnToString, ObjectFunctionString) {
 	return function isPlainObject(obj) {
-		let proto, Ctor;
+		var proto = void 0,
+		    Ctor = void 0;
 
 		// Detext obvious negatives
 		// Use to String to catch host objects
@@ -291,20 +294,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 
 		// Objects with prototype are plain if they were constructed by a global Object function
 		Ctor = hasOwn.call(proto, "constructor") && proto.constructor;
-		return (
-			typeof Ctor === "function" &&
-			fnToString.call(Ctor) === ObjectFunctionString
-		);
+		return typeof Ctor === "function" && fnToString.call(Ctor) === ObjectFunctionString;
 	};
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-12
 * @Email:  543457946@qq.com
@@ -317,12 +319,14 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
-
 /***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_RESULT__;
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-12
 * @Email:  543457946@qq.com
@@ -330,17 +334,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-12
 */
-!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 	return Object.getPrototypeOf;
 }).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-12
 * @Email:  543457946@qq.com
@@ -348,17 +354,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-12
 */
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_RESULT__ = (function(hasOwn) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (hasOwn) {
 	return hasOwn.toString;
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-11
 * @Email:  543457946@qq.com
@@ -366,17 +374,19 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-12
 */
-!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(10)], __WEBPACK_AMD_DEFINE_RESULT__ = (function(werun, formater) {
+!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(10)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (werun, formater) {
 	return formater;
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var __WEBPACK_AMD_DEFINE_RESULT__;/*
+"use strict";
+var __WEBPACK_AMD_DEFINE_RESULT__;
+
+/*
 * @Author: Neeze@ZJS
 * @Date:   2018-03-11
 * @Email:  543457946@qq.com
@@ -385,16 +395,14 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 * @Last Modified time: 2018-03-12
 */
 
-!(__WEBPACK_AMD_DEFINE_RESULT__ = (function() {
+!(__WEBPACK_AMD_DEFINE_RESULT__ = (function () {
 	return function formater(setting, time) {
-		let customDate = null;
+		var customDate = null;
 
 		/** initial */
 		customDate = time === undefined || !time ? new Date() : new Date(time);
 		if (!customDate.getTime() || customDate == "Invaild Date") {
-			throw new Error(
-				"By /date/formater: " + "Invaild Date!"
-			); /** invaild date error */
+			throw new Error("By /date/formater: " + "Invaild Date!"); /** invaild date error */
 		}
 
 		var o = {
@@ -410,34 +418,23 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*
 
 		/** year */
 		if (/(y+)/i.test(setting)) {
-			setting = setting.replace(
-				RegExp.$1,
-				(customDate.getFullYear() + "").substr(4 - RegExp.$1.length)
-			);
+			setting = setting.replace(RegExp.$1, (customDate.getFullYear() + "").substr(4 - RegExp.$1.length));
 		}
 
 		/** day of a week */
 		if (/D/.test(setting)) {
-			let day = customDate.getDay();
+			var day = customDate.getDay();
 			setting = setting.replace(RegExp.$1, day ? day : 7);
 		}
 
-		for (var k in o)
-			if (new RegExp("(" + k + ")").test(setting))
-				setting = setting.replace(
-					RegExp.$1,
-					RegExp.$1.length == 1
-						? o[k]
-						: ("00" + o[k]).substr(("" + o[k]).length)
-				);
-
-		setting.replace("\\", "");
+		for (var k in o) {
+			if (new RegExp("(" + k + ")").test(setting)) setting = setting.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ("00" + o[k]).substr(("" + o[k]).length));
+		}setting.replace("\\", "");
 
 		return setting;
 	};
 }).call(exports, __webpack_require__, exports, module),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-
 
 /***/ })
 /******/ ]);

@@ -4,7 +4,7 @@
 * @Email:  543457946@qq.com
 * @Description: core function for plugins' extends
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-03-12
+* @Last Modified time: 2018-03-13
 */
 
 define(["./var/isFunction", "./var/isPlainObject"], function(

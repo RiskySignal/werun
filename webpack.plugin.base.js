@@ -8,6 +8,16 @@
 */
 const path = require("path");
 const webpack = require("webpack");
+const clc = require("cli-color");
+/** HappyPack -> Expect to use parallel processing to improve the packaging speed (But it's actually slower)  */
+// const HappyPack = require('happypack');
+
+console.log(
+	clc.whiteBright.bgWhite("-------------------- ") +
+		clc.bgWhite.green(" 🐢 ") +
+		clc.bgWhite.redBright("Werun Plugin(Powered by WeRun Club of HITWH)") +
+		clc.whiteBright.bgWhite(" ------------------")
+);
 
 const entry = {
 		werun: "./src/plugin/werun.js"
@@ -32,12 +42,16 @@ const developConfig = {
 				loader: "babel-loader",
 				query: {
 					compact: false,
-					presets: ["es2015"]
+					presets: ["es2015"],
+					cacheDirectory: true
 				}
 			}
 		]
 	},
-	output: developOutput
+	output: developOutput,
+	plugins: [
+		new webpack.optimize.ModuleConcatenationPlugin /* Scope Hoisting */()
+	]
 };
 
 const produceConfig = {
@@ -67,7 +81,8 @@ const produceConfig = {
 			parallel: true, // Enable parallelization
 			sourceMap: true,
 			ie8: true // enable IE8 support
-		})
+		}),
+		new webpack.optimize.ModuleConcatenationPlugin /* Scope Hoisting */()
 	]
 };
 

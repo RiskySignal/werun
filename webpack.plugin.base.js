@@ -4,7 +4,7 @@
 * @Email:  543457946@qq.com
 * @Description: webpack basic config for werun plugin module
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-03-13
+* @Last Modified time: 2018-03-14
 */
 const path = require("path");
 const webpack = require("webpack");
@@ -45,7 +45,7 @@ const developConfig = {
 					cache: true,
 					failOnError: true,
 					emitWarning: true,
-					configFile: "./src/plugin/.eslintrc.js",
+					configFile: "src/plugin/.eslintrc.js",
 					ignorePath: ".eslintignore"
 				}
 			},

@@ -225,6 +225,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
 */
 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(0), __webpack_require__(9)], __WEBPACK_AMD_DEFINE_RESULT__ = (function (werun) {
 	werun();
+	console.log("123");
 
 	return werun;
 }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),

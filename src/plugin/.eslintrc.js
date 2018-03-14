@@ -1,7 +1,9 @@
 module.exports = {
+    root: true,
     env: {
         browser: true,
-        es6: true
+        es6: true,
+        amd: true
     },
     extends: "eslint:recommended",
     rules: {
@@ -82,11 +84,13 @@ module.exports = {
         "no-alert": "error",
         "no-array-constructor": "error",
         "no-await-in-loop": "error",
-        "no-bitwise": "error",
+        "no-bitwise": "off",
         "no-buffer-constructor": "error",
         "no-caller": "error",
         "no-catch-shadow": "error",
+        "no-cond-assign": "warn",
         "no-confusing-arrow": "error",
+        "no-console": "warn",
         "no-continue": "error",
         "no-div-regex": "error",
         "no-duplicate-imports": "error",

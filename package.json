@@ -69,6 +69,5 @@
         "ie >= 8",
         "last 5 versions",
         "> 1%"
-    ],
-    "eslintIgnore": "./.eslintignore"
+    ]
 }

@@ -8,6 +8,7 @@
 */
 define(["./core", "./date"], function(werun) {
 	werun();
+	console.log("123");
 
 	return werun;
 });

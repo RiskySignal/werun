@@ -4,11 +4,11 @@
 * @Email:  543457946@qq.com
 * @Description:  main javascipt combining all separate methods
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-03-13
+* @Last Modified time: 2018-03-14
 */
 define(["./core", "./date"], function(werun) {
-	werun();
-	console.log("123");
+    werun();
+    console.log("123");
 
-	return werun;
+    return werun;
 });

@@ -4,97 +4,100 @@
 * @Email:  543457946@qq.com
 * @Description: core function for plugins' extends
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-03-13
+* @Last Modified time: 2018-03-15
 */
 
 define(["./var/isFunction", "./var/isPlainObject"], function(
-	isFunction,
-	isPlainObject
+    isFunction,
+    isPlainObject
 ) {
-	const version = "0.0.1",
-		// Define a local copy for Werun
-		Werun = function() {
-			return this;
-		};
+    const version = process.env.PLUGIN_VERSION,
+        // Define a local copy for Werun
+        Werun = function() {
+            const self = this;
 
-	Werun.prototype = {
-		// The current version of Werun being used
-		werun: version
-	};
+            return self;
+        };
 
-	Werun.extend = function() {
-		let options,
-			name,
-			src,
-			copy,
-			copyIsArray,
-			clone,
-			target = arguments[0] || {},
-			i = 1,
-			length = arguments.length,
-			deep = false;
+    Werun.prototype = {
+        // The current version of Werun being used
+        werun: version
+    };
 
-		// Handle a deep copy situation(The default copy is shallow copy)
-		if (typeof target === "boolean") {
-			deep = target;
+    Werun.extend = function() {
+        let options,
+            name,
+            src,
+            copy,
+            copyIsArray,
+            clone,
+            target = arguments[0] || {},
+            i = 1,
+            length = arguments.length,
+            deep = false;
+        const self = this;
 
-			// Skip the boolean and the target
-			target = arguments[i] || {};
-			i++;
-		}
+        // Handle a deep copy situation(The default copy is shallow copy)
+        if (typeof target === "boolean") {
+            deep = target;
 
-		// Handle case when target is a string or something (possible in deep copy)
-		if (typeof target !== "object" && !isFunction(target)) {
-			target = {};
-		}
+            // Skip the boolean and the target
+            target = arguments[i] || {};
+            i++;
+        }
 
-		// Extend Werun itself if only one argument is passed
-		if (i === length) {
-			target = this;
-			i--;
-		}
+        // Handle case when target is a string or something (possible in deep copy)
+        if (typeof target !== "object" && !isFunction(target)) {
+            target = {};
+        }
 
-		for (; i < length; i++) {
-			// Only deal with non-null/undefined values
-			if ((options = arguments[i]) != null) {
-				// Extend the base object
-				for (name in options) {
-					src = target[name];
-					copy = options[name];
+        // Extend Werun itself if only one argument is passed
+        if (i === length) {
+            target = self;
+            i--;
+        }
 
-					// Prevent never-ending loop
-					if (target === copy) {
-						continue;
-					}
+        for (; i < length; i++) {
+            // Only deal with non-null/undefined values
+            if ((options = arguments[i]) != null) {
+                // Extend the base object
+                for (name in options) {
+                    src = target[name];
+                    copy = options[name];
 
-					// Recurse if we're merging plain objects or arrays
-					if (
-						deep &&
-						copy &&
-						(isPlainObject(copy) ||
-							(copyIsArray = Array.isArray(copy)))
-					) {
-						if (copyIsArray) {
-							copyIsArray = false;
-							clone = src && Array.isArray(src) ? src : [];
-						} else {
-							clone = src && isPlainObject(src) ? src : {};
-						}
+                    // Prevent never-ending loop
+                    if (target === copy) {
+                        continue;
+                    }
 
-						// Never move original objects, just clone them
-						target[name] = Werun.extend(deep, clone, copy);
+                    // Recurse if we're merging plain objects or arrays
+                    if (
+                        deep &&
+                        copy &&
+                        (isPlainObject(copy) ||
+                            (copyIsArray = Array.isArray(copy)))
+                    ) {
+                        if (copyIsArray) {
+                            copyIsArray = false;
+                            clone = src && Array.isArray(src) ? src : [];
+                        } else {
+                            clone = src && isPlainObject(src) ? src : {};
+                        }
 
-						// Don't bring in undefined values
-					} else if (copy !== undefined) {
-						target[name] = copy;
-					}
-				}
-			}
-		}
+                        // Never move original objects, just clone them
+                        target[name] = Werun.extend(deep, clone, copy);
 
-		// Return the modified object
-		return target;
-	};
+                        // Don't bring in undefined values
+                    } else if (copy !== undefined) {
+                        target[name] = copy;
+                    }
+                }
+            }
+        }
 
-	return Werun;
+        // Return the modified object
+        return target;
+    };
+
+    return Werun;
 });

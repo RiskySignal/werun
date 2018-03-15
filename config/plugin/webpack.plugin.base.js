@@ -46,7 +46,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: "eslint-loader",
                 options: {
-                    cache: false, // set false when you are modifying your config files(e.g. .eslintrc and .eslintignore)
+                    cache: true, // set `false` when you are modifying your config files(e.g. .eslintrc and .eslintignore)
                     quiet: true,
                     emitError: false
                 }
@@ -64,7 +64,8 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.optimize.ModuleConcatenationPlugin /* Scope Hoisting */(),
+        // it does not work well when use webpack to process plugin project
+        // new webpack.optimize.ModuleConcatenationPlugin /* Scope Hoisting */(),
         new FriendlyErrorsPlugin({
             compilationSuccessInfo: {
                 messages: [message]

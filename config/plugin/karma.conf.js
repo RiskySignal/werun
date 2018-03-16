@@ -9,12 +9,6 @@
 const readline = require("readline");
 const webpackTestConfig = require("./webpack.plugin.test.js");
 
-/** clear the cmd board */
-const blank = "\n".repeat(process.stdout.rows);
-console.log(blank);
-readline.cursorTo(process.stdout, 0, 0);
-readline.clearScreenDown(process.stdout);
-
 module.exports = function(config) {
     config.set({
         // base path that will be used to resolve all patterns (eg. files, exclude)

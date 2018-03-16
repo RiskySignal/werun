@@ -6,13 +6,19 @@
     "dev": "webpack-dev-server --config ./webpack.config.dev.js",
     "build": "webpack --config ./webpack.config.produce.js",
     "plugin:dev": "webpack --config ./config/plugin/webpack.plugin.dev.js",
-    "plugin:build": "karma start ./config/plugin/karma.conf.js && webpack --config ./config/plugin/webpack.plugin.pro.js",
+    "plugin:build":
+      "karma start ./config/plugin/karma.conf.js && webpack --config ./config/plugin/webpack.plugin.pro.js",
     "plugin:test": "karma start ./config/plugin/karma.conf.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/hellochicken/werun001.git"
   },
+  "versions": {
+    "main": "0.1.0",
+    "plugin": "0.1.1"
+  },
+  "keywords": ["werun", "plugin", "component", "webpack"],
   "license": "MIT",
   "author": "Neeze@ZJS",
   "dependencies": {
@@ -85,9 +91,5 @@
     "webpack-merge": "^4.1.2",
     "webpack-monitor": "^1.0.14"
   },
-  "browserslist": [
-    "ie >= 8",
-    "last 2 versions",
-    "> 1%"
-  ]
+  "browserslist": ["ie >= 8", "last 2 versions", "> 1%"]
 }

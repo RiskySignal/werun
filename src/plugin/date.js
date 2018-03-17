@@ -4,8 +4,8 @@
 * @Email:  543457946@qq.com
 * @Description: combine all functions about time operation
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-03-14
+* @Last Modified time: 2018-03-16
 */
-define(["./core", "./date/formater"], function(werun, formater) {
-    return formater;
+define(["./core", "./date/formatter"], function(werun, formatter) {
+    return formatter;
 });

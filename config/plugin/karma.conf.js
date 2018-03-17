@@ -4,7 +4,7 @@
 * @Email:  543457946@qq.com
 * @Description: Karma configuration for plugin
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-03-15
+* @Last Modified time: 2018-03-17
 */
 const readline = require("readline");
 const webpackTestConfig = require("./webpack.plugin.test.js");
@@ -19,7 +19,7 @@ module.exports = function(config) {
         frameworks: ["jasmine"],
 
         // list of files / patterns to load in the browser
-        files: ["spec/**/*[sS]pec.js", "spec/helpers/**/*[hH]elper.js"],
+        files: ["test/plugin/**/*.[sS]pec.js"],
 
         // list of files / patterns to exclude
         exclude: [],
@@ -42,8 +42,7 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            "spec/helpers/**/*[hH]elper.js": ["webpack"],
-            "spec/**/*[sS]pec.js": ["webpack"]
+            "test/plugin/**/*.[sS]pec.js": ["webpack"]
         },
 
         // test results reporter to use

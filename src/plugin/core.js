@@ -4,7 +4,7 @@
 * @Email:  543457946@qq.com
 * @Description: core function for plugins' extends
 * @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-03-15
+* @Last Modified time: 2018-03-18
 */
 
 define(["./var/isFunction", "./var/isPlainObject"], function(
@@ -15,6 +15,7 @@ define(["./var/isFunction", "./var/isPlainObject"], function(
         // Define a local copy for Werun
         Werun = function() {
             const self = this;
+            console.log("Werun Plugin: " + version);
 
             return self;
         };

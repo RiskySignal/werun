@@ -16,7 +16,7 @@ let {
     loaders,
     plugins,
     _ExcludeReg
-} = require("./webpack.config.base.js");
+} = require("./webpack.component.base.js");
 const CleanwebpackPlugin = require("clean-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const path = require("path");

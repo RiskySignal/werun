@@ -8,10 +8,8 @@
 */
 const webpack = require("webpack");
 const clc = require("cli-color");
-const resolve = require("../resolve.js")(__dirname);
+const resolve = require("../resolve-path.js")(__dirname);
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
-/** HappyPack -> Expect to use parallel processing to improve the packaging speed (But it's actually slower)  */
-// const HappyPack = require('happypack');
 
 const message =
     clc.whiteBright.bgWhite("-------------------- ") +
@@ -64,8 +62,6 @@ module.exports = {
         ]
     },
     plugins: [
-        // it does not work well when use webpack to process plugin project
-        // new webpack.optimize.ModuleConcatenationPlugin /* Scope Hoisting */(),
         new FriendlyErrorsPlugin({
             compilationSuccessInfo: {
                 messages: [message]

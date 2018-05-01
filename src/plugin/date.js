@@ -7,5 +7,9 @@
 * @Last Modified time: 2018-03-18
 */
 define(["./core", "./date/formatter"], function(Werun, formatter) {
-    Werun.extend({ date: { formatter } });
+    Werun.extend({
+        date: {
+            formatter
+        }
+    });
 });

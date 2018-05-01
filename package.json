@@ -3,11 +3,11 @@
   "description": "web application tested by Neeze@ZJS",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --config ./webpack.config.dev.js",
-    "build": "webpack --config ./webpack.config.produce.js",
+    "component:dev": "webpack-dev-server --config ./config/component/webpack.component.dev.js",
+    "component:build": "webpack --config ./config/component/webpack.conponent.produce.js",
+    "component:text": "console.log('No test now')",
     "plugin:dev": "webpack --config ./config/plugin/webpack.plugin.dev.js",
-    "plugin:build":
-      "karma start ./config/plugin/karma.conf.js && webpack --config ./config/plugin/webpack.plugin.pro.js",
+    "plugin:build": "karma start ./config/plugin/karma.conf.js && webpack --config ./config/plugin/webpack.plugin.pro.js",
     "plugin:test": "karma start ./config/plugin/karma.conf.js"
   },
   "repository": {
@@ -18,7 +18,12 @@
     "main": "0.1.0",
     "plugin": "0.1.1"
   },
-  "keywords": ["werun", "plugin", "component", "webpack"],
+  "keywords": [
+    "werun",
+    "plugin",
+    "component",
+    "webpack"
+  ],
   "license": "MIT",
   "author": "Neeze@ZJS",
   "dependencies": {
@@ -28,12 +33,14 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
+    "react-dev-utils": "^5.0.1",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "tether": "^1.4.3",
+    "webpack-dev-server": "^2.11.2",
     "zeptojs": "^1.1.4"
   },
   "devDependencies": {
@@ -43,13 +50,14 @@
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "bootstrap-loader": "^2.2.0",
     "clean-webpack-plugin": "^0.1.19",
     "cli-color": "^1.2.0",
     "css-loader": "^0.28.10",
-    "eslint": "^4.18.2",
+    "eslint": "^4.19.1",
     "eslint-config-react": "^1.1.7",
     "eslint-config-standard": "^11.0.0",
     "eslint-loader": "^2.0.0",
@@ -91,5 +99,9 @@
     "webpack-merge": "^4.1.2",
     "webpack-monitor": "^1.0.14"
   },
-  "browserslist": ["ie >= 8", "last 2 versions", "> 1%"]
+  "browserslist": [
+    "ie >= 8",
+    "last 2 versions",
+    "> 1%"
+  ]
 }

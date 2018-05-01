@@ -6,7 +6,6 @@
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-01-17
 */
-const bootstrapEntryPoints = require("./webpack.bootstrap.config.js");
 
 /* dependencies */
 let {
@@ -17,17 +16,18 @@ let {
     loaders,
     plugins,
     _ExcludeReg
-} = require("./webpack.config.base.js");
+} = require("./webpack.component.base.js");
 const WebpackMonitor = require("webpack-monitor");
 const webpack = require("webpack");
-const path = require("path");
+const resolvePath = require("../resolve-path")(__dirname);
+const devEnv = require("../../env/dev.env.js");
 
 let devPlugins = [
     new WebpackMonitor({
-        target: path.resolve(__dirname, "./monitor/stats.json")
+        target: resolvePath("../..//monitor/stats.json")
     }),
-    new webpack.EnvironmentPlugin({
-        WEBPACK_ENV: "dev"
+    new webpack.DefinePlugin({
+        "process.env": devEnv // to be compatible with webpack enviroment plugin
     })
 ];
 devPlugins = devPlugins.concat(plugins);
@@ -42,8 +42,6 @@ let devLoaders = [
 ];
 devLoaders = loaders.concat(devLoaders);
 
-entry.bootstrap_bundle = bootstrapEntryPoints.dev;
-
 module.exports = {
     devServer,
     devtool: "cheap-module-eval-source-map",
@@ -53,5 +51,5 @@ module.exports = {
     module: {
         loaders: devLoaders
     },
-    plugins: devPlugins
+    plugins: devPlugins,
 };

@@ -1,19 +1,12 @@
-/*
-* @Author: Neeze@ZJS
-* @Date:   2018-03-12
-* @Email:  543457946@qq.com
-* @Description: core function for plugins' extends
-* @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-03-18
-*/
+/**
+ * core function for plugins' extends
+ */
 
-define(["./var/isFunction", "./var/isPlainObject"], function(
-    isFunction,
-    isPlainObject
-) {
+define(["./var/isFunction", "./var/isPlainObject"], function (isFunction,
+                                                              isPlainObject) {
     const version = process.env.PLUGIN_VERSION,
         // Define a local copy for Werun
-        Werun = function() {
+        Werun = function () {
             const self = this;
             console.log("Werun Plugin: " + version);
 
@@ -25,7 +18,7 @@ define(["./var/isFunction", "./var/isPlainObject"], function(
         werun: version
     };
 
-    Werun.extend = function() {
+    Werun.extend = function () {
         let options,
             name,
             src,

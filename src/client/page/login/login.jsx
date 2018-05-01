@@ -6,22 +6,23 @@
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-01-17
 */
-import { WeRunTimeLoginBox } from "../../components/index.js";
+import {WeRunTimeLoginBox} from "../../components/index.js";
+
 require("./login.scss");
 
 class Login extends React.Component {
-	constructor(props) {
-		super(props);
-	}
+    constructor(props) {
+        super(props);
+    }
 
-	render() {
-		return (
-			<div>
-				这是登录界面
-				<WeRunTimeLoginBox />
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div>
+                这是登录界面
+                <WeRunTimeLoginBox/>
+            </div>
+        );
+    }
 }
 
-ReactDOM.render(<Login />, document.querySelector("#weruntime-root-wrapper"));
+ReactDOM.render(<Login/>, document.querySelector("#weruntime-root-wrapper"));

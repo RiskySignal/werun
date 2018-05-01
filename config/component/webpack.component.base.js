@@ -1,28 +1,29 @@
-/*
-* @Author: Neeze@ZJS
-* @Date:   2017-11-29
-* @Email:  543457946@qq.com
-* @Description: webpack's basic config file
-* you should alter entries and basic setting in the file, so you don't need to do so both in dev and produce config file
-* @Last Modified by:   Neeze@ZJS
-* @Last Modified time: 2018-03-08
-*/
+"use strict";
 
 /** @dependencies */
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const resolvePath = require("../resolve-path")(__dirname);
+const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
+const clc = require("cli-color");
 
 /** exclude pattern */
 const _ExcludeReg = /(node_modules|bower_components)/;
 
+/** message */
+const message =
+    clc.whiteBright.bgWhite("-------------------- ") +
+    clc.bgWhite.green(" 🐢 ") +
+    clc.bgWhite.redBright("Werun Plugin(Powered by WeRun Club of HITWH)") +
+    clc.whiteBright.bgWhite(" ------------------");
+
 /** devServer options */
 const devServer = {
     port: 8000,
-    // if "open" values "true", it will open default web browser for you automaticly
+    // if "open" values "true", it will open default web browser for you automatic
     open: false,
-    openPage: "./index.html",
+    openPage: "./default.html",
     // proxy server to exchange matched request to server node
     proxy: {
         "/serverPath/*": {
@@ -31,39 +32,40 @@ const devServer = {
         }
     },
     inline: true,
-    clientLogLevel: "warning"
-    // if you set "noinfo" to true, there will be nothing in console log when packing
-    // noinfo: true,
-
-    // use https in developing enviroment
-    // 根据webpack默认配置无法实现https
-    // https: true
+    stats: {
+        warnings: false,
+        version: false,
+        hash: false,
+        errors: false,
+        modules: false,
+        usedExports: true,
+        chunks: false,
+        chunkModules: false
+    }
 };
 
 /** resolve options */
 const resolve = {
-    extensions: ["*", ".js", ".jsx", ".scss", ".css"]
+    extensions: ["*", ".js", ".jsx"]
 };
 
 /** entry options */
 const entry = {
-    login: path.resolve(__dirname, "./src/client/page/login/login.jsx"),
+    login: resolvePath("../../src/client/page/login/login"),
+    default: resolvePath("../../src/client/page/default/default"),
     react_bundle: ["react", "react-dom", "prop-types"],
-    jquery_bundle: "jquery",
-    tether_bundle: "tether",
-    popper_bundle: "popper.js",
     werun: "./src/plugin/werun.js",
-    bootstrap_bundle: null
+    bootstrap_bundle: ["react-bootstrap", resolvePath("../../src/external-source/css/bootstrap.css")]
 };
 
 /** output options */
 const devOutput = {
-    path: path.resolve(__dirname, "./dist/web"),
+    path: resolvePath("../../dist/web"),
     publicPath: "/",
     filename: "javascript/[name].[chunkHash].js"
 };
 const proOutput = {
-    path: path.resolve(__dirname, "./dist/web"),
+    path: resolvePath("../../dist/web"),
     publicPath: "./",
     filename: "javascript/[name].min.[chunkHash].js"
 };
@@ -72,7 +74,7 @@ const proOutput = {
 const loaders = [
     {
         /* scss */
-        test: /\.scss$/,
+        test: /\.[s]?css$/,
         exclude: _ExcludeReg,
         loader: ExtractTextPlugin.extract({
             fallback: ["style-loader"],
@@ -85,30 +87,26 @@ const loaders = [
         test: /\.js[x]?$/,
         exclude: _ExcludeReg,
         loader: "babel-loader",
-        query: {
+        options: {
+            babelrc: false,
             compact: false,
             presets: ["react", "es2015"],
             plugins: [
                 "transform-export-extensions",
                 "transform-class-properties"
-            ]
+            ],
+            cacheDirectory: true
         }
-    },
-    {
-        /* css */
-        test: /\.css$/,
-        exclude: _ExcludeReg,
-        loader: ExtractTextPlugin.extract({
-            fallback: ["style-loader"],
-            use: ["css-loader", "postcss-loader"],
-            publicPath: "../"
-        })
     },
     {
         /* images */
         test: /\.(png|jpg|gif)$/,
         exclude: _ExcludeReg,
-        loader: "url-loader?limit=8192&name=images/[name].[ext]"
+        loader: "url-loader",
+        options: {
+            limit: 10000,
+            name: "images/[name].[ext]"
+        }
     },
     {
         /* font family */
@@ -131,56 +129,56 @@ const plugins = [
         React: "react",
         ReactDOM: "react-dom",
         PropTypes: "prop-types",
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery",
-        Popper: "popper.js",
-        "window.Popper": "popper.js",
-        Tether: "tether",
-        "window.Tether": "tether",
-        Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
-        Button: "exports-loader?Button!bootstrap/js/dist/button",
-        Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
-        Collapse: "exports-loader?Collapse!bootstrap/js/dist/collapse",
-        Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
-        Modal: "exports-loader?Modal!bootstrap/js/dist/modal",
-        Popover: "exports-loader?Popover!bootstrap/js/dist/popover",
-        Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
-        Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
-        Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
-        Util: "exports-loader?Util!bootstrap/js/dist/util"
+        Bootstrap: "react-bootstrap"
     }),
+    new FriendlyErrorsPlugin({
+        compilationSuccessInfo: {
+            messages: [message]
+        }
+    }),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
         name: [
-            "react_bundle",
             "bootstrap_bundle",
-            "jquery_bundle",
-            "tether_bundle",
-            "popper_bundle"
+            "react_bundle",
         ],
         filename: "js/[name].js",
         minChunks: Infinity
     }),
     new HtmlWebpackPlugin({
         showErrors: false,
-        template: path.resolve(
-            __dirname,
-            "./src/client/page/template/template.html"
-        ),
+        template: resolvePath("../../src/client/page/template/template.html"),
         filename: "./login.html", // 登陆
         chunks: [
-            "jquery_bundle",
-            "tether_bundle",
-            "popper_bundle",
             "bootstrap_bundle",
             "react_bundle",
             "login"
+        ]
+    }),
+    new HtmlWebpackPlugin({
+        showErrors: false,
+        template: resolvePath("../../src/client/page/template/template.html"),
+        filename: "./default.html", // 默认测试
+        chunks: [
+            "bootstrap_bundle",
+            "react_bundle",
+            "default"
         ]
     })
 ];
 
 /** exclude path regulation option */
 module.exports = {
+    stats: {
+        warnings: false,
+        version: false,
+        hash: false,
+        errors: false,
+        modules: false,
+        usedExports: true,
+        chunks: false,
+        chunkModules: false
+    },
     _ExcludeReg,
     plugins,
     loaders,

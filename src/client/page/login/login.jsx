@@ -6,7 +6,7 @@
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-01-17
 */
-import {WeRunTimeLoginBox} from "../../components/index.js";
+import {LoginBox} from "../../components/index.js";
 
 require("./login.scss");
 
@@ -18,8 +18,7 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-                这是登录界面
-                <WeRunTimeLoginBox/>
+                <LoginBox/>
             </div>
         );
     }

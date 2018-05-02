@@ -6,6 +6,9 @@
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-01-17
 */
+"use strict";
+
+process.env.CONFIG_ENV = "dev";
 
 /* dependencies */
 let {
@@ -17,15 +20,10 @@ let {
     plugins,
     _ExcludeReg
 } = require("./webpack.component.base.js");
-const WebpackMonitor = require("webpack-monitor");
 const webpack = require("webpack");
-const resolvePath = require("../resolve-path")(__dirname);
 const devEnv = require("../../env/dev.env.js");
 
 let devPlugins = [
-    new WebpackMonitor({
-        target: resolvePath("../..//monitor/stats.json")
-    }),
     new webpack.DefinePlugin({
         "process.env": devEnv // to be compatible with webpack enviroment plugin
     })

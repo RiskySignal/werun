@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "component:dev": "webpack-dev-server --config ./config/component/webpack.component.dev.js",
-    "component:build": "webpack --config ./config/component/webpack.conponent.produce.js",
+    "component:build": "webpack --config ./config/component/webpack.component.produce.js",
     "component:text": "console.log('No test now')",
     "plugin:dev": "webpack --config ./config/plugin/webpack.plugin.dev.js",
     "plugin:build": "karma start ./config/plugin/karma.conf.js && webpack --config ./config/plugin/webpack.plugin.pro.js",

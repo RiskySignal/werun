@@ -44,9 +44,14 @@ const devServer = {
     }
 };
 
+const note = process.env.CONFIG_ENV === "dev" ? "Your application is running here http://localhost:" + devServer.port : "Your application is builded in 'dist'";
+
 /** resolve options */
 const resolve = {
-    extensions: ["*", ".js", ".jsx"]
+    extensions: ["*", ".js", ".jsx"],
+    // alias: {
+    //     Components: resolvePath("../../src/client/components")
+    // }
 };
 
 /** entry options */
@@ -54,7 +59,7 @@ const entry = {
     login: resolvePath("../../src/client/page/login/login"),
     default: resolvePath("../../src/client/page/default/default"),
     react_bundle: ["react", "react-dom", "prop-types"],
-    werun: "./src/plugin/werun.js",
+    werun: resolvePath("../../src/plugin/werun.js"),
     bootstrap_bundle: ["react-bootstrap", resolvePath("../../src/external-source/css/bootstrap.css")]
 };
 
@@ -105,14 +110,14 @@ const loaders = [
         loader: "url-loader",
         options: {
             limit: 10000,
-            name: "images/[name].[ext]"
+            name: "media/[name].[ext]"
         }
     },
     {
         /* font family */
         test: /\.(ttf|eot|svg|woff)(\?[\s\S]+)?$/,
         exclude: _ExcludeReg,
-        use: "file-loader?name=fonts/[name].[ext]"
+        use: "file-loader?name=media/[name].[ext]"
     },
     {
         /* html with images */
@@ -133,7 +138,8 @@ const plugins = [
     }),
     new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
-            messages: [message]
+            messages: [message],
+            notes: [note]
         }
     }),
     new webpack.NoEmitOnErrorsPlugin(),

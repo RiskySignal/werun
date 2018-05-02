@@ -6,24 +6,33 @@
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-03-08
 */
-const bootstrapEntryPoints = require("./webpack.bootstrap.config.js");
 
-/* dependencies */
+"use strict";
+
+process.env.CONFIG_ENV = "pro";
+
 let {
     resolve,
     entry,
     proOutput,
     loaders,
     plugins,
-    _ExcludeReg
+    stats
 } = require("./webpack.component.base.js");
 const CleanwebpackPlugin = require("clean-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const path = require("path");
+const WebpackMonitor = require("webpack-monitor");
 const webpack = require("webpack");
+const proEnv = require("../../env/pro.env");
+const resolvePath = require("../resolve-path")(__dirname);
 
 let proPlugins = [
-    new CleanwebpackPlugin([path.resolve(__dirname, "./dist/web")]),
+    new WebpackMonitor({
+        target: resolvePath("../../monitor/stats.json")
+    }),
+    new CleanwebpackPlugin([resolvePath("../../dist/web")], {
+        root: resolvePath("../../")
+    }),
     new OptimizeCssAssetsPlugin({
         cssProcessorOptions: {
             discardComments: {
@@ -36,13 +45,16 @@ let proPlugins = [
         output: {
             comments: false
         }
-    })
+    }),
+    new webpack.DefinePlugin({
+        "process.env": proEnv // to be compatible with webpack enviroment plugin
+    }),
+    new webpack.BannerPlugin("哈尔滨工业大学(威海) 软件学院 WeRun 俱乐部")
 ];
 proPlugins = plugins.concat(proPlugins);
 
-entry.bootstrap_bundle = bootstrapEntryPoints.prod;
-
 module.exports = {
+    stats,
     resolve,
     devtool: "cheap-module-source-map",
     entry,

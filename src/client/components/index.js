@@ -6,4 +6,4 @@
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-01-15
 */
-export WeRunTimeLoginBox from "./weruntime-login-box/WeRunTimeLoginBox.jsx";
+export LoginBox from "./login-box/login-box.jsx";

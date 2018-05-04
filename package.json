@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hellochicken/werun001.git"
+    "url": "https://github.com/hellochicken/werun.git"
   },
   "versions": {
     "main": "0.1.0",
@@ -22,14 +22,13 @@
     "werun",
     "plugin",
     "component",
-    "webpack"
+    "webpack",
+    "react-bootstrap"
   ],
   "license": "MIT",
   "author": "Neeze@ZJS",
   "dependencies": {
-    "bootstrap": "^4.0.0",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.0",
+    "bootstrap": "^4.1.1",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.1",
@@ -39,12 +38,9 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "tether": "^1.4.3",
-    "webpack-dev-server": "^2.11.2",
-    "zeptojs": "^1.1.4"
+    "webpack-dev-server": "^2.11.2"
   },
   "devDependencies": {
-    "ajv": "^6.2.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-loader": "^7.1.4",
@@ -53,7 +49,6 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "bootstrap-loader": "^2.2.0",
     "clean-webpack-plugin": "^0.1.19",
     "cli-color": "^1.2.0",
     "css-loader": "^0.28.10",

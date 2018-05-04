@@ -4,3 +4,79 @@
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-01-15
 */
+#login-box {
+  background-color: rgba(0, 0, 0, .87);
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  padding: 0;
+
+  #login-content {
+    margin-top: 100px;
+  }
+
+  // panel start
+  .account-socials {
+    display: flex;
+    justify-content: center;
+  }
+
+  .account-socials-row {
+    display: inline-block;
+
+    .account-social {
+      margin: 0 15px;
+    }
+
+    a {
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    img {
+      width: 75px;
+      height: 75px;
+    }
+  }
+
+  .panel-heading {
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+  //  panel end
+
+  //  login-form start
+  .custom-input-form {
+    margin-top: 20px;
+  }
+
+  .form-group {
+
+    #login {
+      display: inline-block;
+      margin-right: 3px;
+      padding: {
+        left: 1.4em;
+        right: 1.4em;
+      }
+    }
+
+    a {
+      display: inline-block; // 实现a标签整体折行
+    }
+
+    b {
+      color: #666;
+      padding-right: 4px;
+    }
+
+  }
+  //  login-form end
+
+  .col-center-block {
+    display: block;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

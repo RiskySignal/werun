@@ -1,0 +1,78 @@
+#top-new-version-hints {
+  text-align: center;
+  background-color: #393e46;
+  border-radius: 2px;
+
+  span {
+    color: #eee;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+  }
+}
+
+#index-page {
+  padding: 0;
+
+  #header {
+    background: url("./pw_maze_black.png") repeat;
+    color: #fff;
+    padding-top: 230px; /*no*/
+    padding-bottom: 250px; /*no*/
+
+    @media (min-height: 950px) {
+      padding-bottom: 350px; /*no*/
+    }
+
+    h1 {
+      font-family: "Montserrat", sans-serif;
+      font-size: 50px;
+      letter-spacing: -3px;
+      margin-bottom: 20px;
+    }
+
+    figure {
+      margin-bottom: 35px; /*no*/
+
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 170px;
+      }
+    }
+
+    ul {
+      color: #bcbcbc;
+      letter-spacing: 1px;
+    }
+
+    .link-btn {
+      margin-top: 55px; /*no*/
+
+      a {
+        color: #fff;
+        background: #00a79d;
+        padding: 15px 35px;
+        border-radius: 5px;
+        font-size: 15px;
+        outline: 0;
+        text-decoration: none;
+
+        &:hover,
+        &:active {
+          color: #00a79d;
+          background-color: #fff;
+          animation: blueToWhite 500ms;
+        }
+
+        @keyframes blueToWhite {
+          from {
+            background-color: #00a79d;
+          }
+          to {
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

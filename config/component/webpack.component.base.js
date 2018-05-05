@@ -9,7 +9,7 @@ const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin");
 const clc = require("cli-color");
 
 /** exclude pattern */
-const _ExcludeReg = /(node_modules|bower_components)/;
+const _ExcludeReg = /(node_modules|bower_components|external-source)/;
 
 /** message */
 const message =
@@ -44,23 +44,30 @@ const devServer = {
     }
 };
 
-const note = process.env.CONFIG_ENV === "dev" ? "Your application is running here http://localhost:" + devServer.port : "Your application is builded in 'dist'";
+const note =
+    process.env.CONFIG_ENV === "dev"
+        ? "Your application is running here http://localhost:" + devServer.port
+        : "Your application is builded in 'dist'";
 
 /** resolve options */
 const resolve = {
-    extensions: ["*", ".js", ".jsx"],
-    // alias: {
-    //     Components: resolvePath("../../src/client/components")
-    // }
+    extensions: ["*", ".js", ".jsx"]
 };
 
 /** entry options */
 const entry = {
     login: resolvePath("../../src/client/page/login/login"),
+    index: resolvePath("../../src/client/page/index/index"),
     default: resolvePath("../../src/client/page/default/default"),
     react_bundle: ["react", "react-dom", "prop-types"],
     werun: resolvePath("../../src/plugin/werun.js"),
-    bootstrap_bundle: ["react-bootstrap", resolvePath("../../src/external-source/css/bootstrap.css")]
+    bootstrap_bundle: ["react-bootstrap", "bootstrap/dist/css/bootstrap.css"],
+    animate: "animate.css",
+    minireset: [
+        "minireset.css",
+        resolvePath("../../src/external-source/css/customer.scss"),
+        resolvePath("../../src/external-source/css/resetRem.scss")
+    ]
 };
 
 /** output options */
@@ -78,9 +85,29 @@ const proOutput = {
 /** loaders options */
 const loaders = [
     {
-        /* scss */
+        /* customer scss */
         test: /\.[s]?css$/,
         exclude: _ExcludeReg,
+        loader: ExtractTextPlugin.extract({
+            fallback: ["style-loader"],
+            use: [
+                "css-loader",
+                {
+                    loader: "px2rem-loader",
+                    options: {
+                        remUnit: 10
+                    }
+                },
+                "postcss-loader",
+                "sass-loader"
+            ],
+            publicPath: "../"
+        })
+    },
+    {
+        /* node modules scss */
+        test: /\.[s]?css$/,
+        include: _ExcludeReg,
         loader: ExtractTextPlugin.extract({
             fallback: ["style-loader"],
             use: ["css-loader", "postcss-loader", "sass-loader"],
@@ -115,8 +142,7 @@ const loaders = [
     },
     {
         /* font family */
-        test: /\.(ttf|eot|svg|woff)(\?[\s\S]+)?$/,
-        exclude: _ExcludeReg,
+        test: /\.(ttf|eot|svg|woff|woff2)(\?[\s\S]+)?$/,
         use: "file-loader?name=media/[name].[ext]"
     },
     {
@@ -144,18 +170,17 @@ const plugins = [
     }),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-        name: [
-            "bootstrap_bundle",
-            "react_bundle",
-        ],
+        name: ["minireset", "animate", "bootstrap_bundle", "react_bundle"],
         filename: "js/[name].js",
         minChunks: Infinity
     }),
     new HtmlWebpackPlugin({
         showErrors: false,
-        template: resolvePath("../../src/client/page/template/template.html"),
+        template: resolvePath("../../src/client/page/template.html"),
         filename: "./login.html", // 登陆
         chunks: [
+            "minireset",
+            "animate",
             "bootstrap_bundle",
             "react_bundle",
             "login"
@@ -163,12 +188,26 @@ const plugins = [
     }),
     new HtmlWebpackPlugin({
         showErrors: false,
-        template: resolvePath("../../src/client/page/template/template.html"),
+        template: resolvePath("../../src/client/page/template.html"),
         filename: "./default.html", // 默认测试
         chunks: [
+            "minireset",
+            "animate",
             "bootstrap_bundle",
             "react_bundle",
             "default"
+        ]
+    }),
+    new HtmlWebpackPlugin({
+        showErrors: false,
+        template: resolvePath("../../src/client/page/template.html"),
+        filename: "./index.html", // 主页
+        chunks: [
+            "minireset",
+            "animate",
+            "bootstrap_bundle",
+            "react_bundle",
+            "index"
         ]
     })
 ];

@@ -1,0 +1,23 @@
+html {
+  font-size: 4.8px;
+
+  @media (min-width: 576px) {
+    font-size: 4.8px;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 6.4px;
+  }
+
+  @media (min-width: 992px) {
+    font-size: 8.26px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 10px;
+  }
+}
+
+body {
+  font-size: 1.4rem;
+}

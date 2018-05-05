@@ -1,0 +1,38 @@
+#navigation-bar {
+  .container-fluid {
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: center;
+      .navbar-collapse {
+        display: flex !important;
+        align-items: center;
+      }
+    }
+  }
+
+  a {
+    font-size: 16px;
+  }
+
+  a:hover {
+    color: #00a79d;
+  }
+
+  #logo-item {
+    display: none !important;
+
+    @media (min-width: 768px) {
+      display: block !important;
+      margin: 0 60px;
+    }
+
+    a {
+      display: inline-block;
+
+      img {
+        width: 48px; /*no*/
+        display: inline-block;
+      }
+    }
+  }
+}

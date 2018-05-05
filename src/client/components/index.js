@@ -7,3 +7,4 @@
 * @Last Modified time: 2018-01-15
 */
 export LoginBox from "./login-box/login-box.jsx";
+export NavigationBar from "./navigation-bar/navigation-bar";

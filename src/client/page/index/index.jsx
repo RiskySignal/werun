@@ -3,6 +3,11 @@ require("./index.scss");
 import { NavigationBar } from "../../components/index";
 
 const Logo = require("./logo-werun.png");
+const Team_Kat = require("./team_kat-min.png");
+const Team_Vince = require("./team_vince-min.png");
+const Team_Ken = require("./team_ken-min.png");
+const Iphone = require("./iphone.png");
+const Movie = require("./life_movie.MOV");
 
 class IndexPage extends React.Component {
     constructor(props) {
@@ -35,7 +40,73 @@ class IndexPage extends React.Component {
                     </div>
                 </header>
                 <NavigationBar />
-                主页
+                <section className="container" id="club-life">
+                    <h2>club life</h2>
+                    <h6>实验室，是一个学生、生活、工作的绝佳圣地</h6>
+                    <figure className="col-lg-10 col-md-10 col-sm-12 col-xs-12 center-block life-media">
+                        <video
+                            src={Movie}
+                            autoPlay={true}
+                            muted={true}
+                            loop={true}
+                            className="video"
+                        >
+                            您的浏览器不支持
+                        </video>
+                    </figure>
+                </section>
+                <section className="container" id="instructor">
+                    <h2>指导老师</h2>
+                    <h6>实验室共有4名知道老师共同指导科研工作和项目开发</h6>
+                    <div className="instructor-block clearfix">
+                        <div className="instructor-box">
+                            <div className="instructor">
+                                <img src={Team_Kat} alt="kat" />
+                            </div>
+                            <h3>朱东杰 老师</h3>
+                            <span>移动计算</span>
+                            <p>欢迎加入我们</p>
+                        </div>
+                        <div className="instructor-box">
+                            <div className="instructor">
+                                <img src={Team_Ken} alt="ken" />
+                            </div>
+                            <h3>朱东杰 老师</h3>
+                            <span>移动计算</span>
+                            <p>欢迎加入我们</p>
+                        </div>
+                        <div className="instructor-box">
+                            <div className="instructor">
+                                <img src={Team_Vince} alt="vince" />
+                            </div>
+                            <h3>朱东杰 老师</h3>
+                            <span>移动计算</span>
+                            <p>欢迎加入我们</p>
+                        </div>
+                        <div className="instructor-box">
+                            <div className="instructor">
+                                <img src={Team_Ken} alt="ken" />
+                            </div>
+                            <h3>朱东杰 老师</h3>
+                            <span>移动计算</span>
+                            <p>欢迎加入我们</p>
+                        </div>
+                    </div>
+                </section>
+                <footer className="footer" id="footer">
+                    <div className="container">
+                        <div className="footer-logo">
+                            <a href="#">
+                                <img src={Logo} alt="werun logo" />
+                            </a>
+                        </div>
+                        <div className="footer-content">
+                            <span>
+                                Copyright © 2018 WeRun Club. All Rights Reserved
+                            </span>
+                        </div>
+                    </div>
+                </footer>
             </div>
         );
     }

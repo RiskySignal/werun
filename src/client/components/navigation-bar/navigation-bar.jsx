@@ -28,9 +28,7 @@ class NavigationBar extends React.Component {
                     </Nav>
                     <Nav id="logo-item">
                         <NavItem>
-                            <a href="./index.html">
-                                <img src={werunLogo} alt="logo" />
-                            </a>
+                            <img src={werunLogo} alt="logo" />
                         </NavItem>
                     </Nav>
                     <Nav>

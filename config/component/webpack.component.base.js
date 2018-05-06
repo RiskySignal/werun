@@ -142,7 +142,7 @@ const loaders = [
     },
     {
         /* font family */
-        test: /\.(ttf|eot|svg|woff|woff2)(\?[\s\S]+)?$/,
+        test: /\.(ttf|eot|svg|woff|woff2|MOV)(\?[\s\S]+)?$/,
         use: "file-loader?name=media/[name].[ext]"
     },
     {

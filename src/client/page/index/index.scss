@@ -46,7 +46,6 @@
     span {
       color: #888888;
       font-size: 14px;
-      margin-bottom: 24px;
       display: block;
     }
 
@@ -157,6 +156,10 @@
         width: auto;
         max-width: 307px; /*no*/
       }
+
+      span {
+        margin-bottom: 24px;
+      }
     }
 
     .instructor {
@@ -176,6 +179,63 @@
       background-color: #fafafa;
       padding: 10px;
       border-radius: 5px;
+    }
+  }
+
+  #skills {
+    background: url("./pw_maze_black.png");
+    margin: 0;
+    width: 100%;
+
+    h2 {
+      color: #fff;
+    }
+
+    .skills-block {
+      display: flex;
+      justify-content: center;
+
+      @media (max-width: 767px) {
+        display: block;
+        margin-top: 60px; /*no*/
+
+        a {
+          margin: 0 auto 15px;
+        }
+      }
+    }
+
+    a {
+      background-color: #464646;
+      height: 71px;
+      margin: 15px 15px 15px; /*no*/
+      text-align: center;
+      border-radius: 5px;
+      width: 241.5px; /*no*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        background-color: #00a79d;
+      }
+    }
+
+    span {
+      display: inline-block;
+      line-height: 71px;
+      font-size: 18px; /*no*/
+      color: #fff;
+      font-family: "Open Sans", serif;
+    }
+
+    figure {
+      height: 100%;
+      display: flex;
+      width: 43px; /*no*/
+      margin-right: 25px; /*no*/
     }
   }
 }

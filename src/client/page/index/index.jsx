@@ -6,8 +6,10 @@ const Logo = require("./logo-werun.png");
 const Team_Kat = require("./team_kat-min.png");
 const Team_Vince = require("./team_vince-min.png");
 const Team_Ken = require("./team_ken-min.png");
-const Iphone = require("./iphone.png");
-const Movie = require("./life_movie.MOV");
+const Movie = require("./life.webm");
+const Web = require("./web.svg");
+const Server = require("./server.svg");
+const Think = require("./think.svg");
 
 class IndexPage extends React.Component {
     constructor(props) {
@@ -54,6 +56,32 @@ class IndexPage extends React.Component {
                             您的浏览器不支持
                         </video>
                     </figure>
+                </section>
+                <section className="container" id="skills">
+                    <h2>技能擅长</h2>
+                    <h6>
+                        经过10来年的发展、创新，我们已经找到了自己开发的擅长领域
+                    </h6>
+                    <div className="skills-block clearfix">
+                        <a href="#" className="skill">
+                            <figure>
+                                <img src={Web} alt="Web" />
+                            </figure>
+                            <span>Web 前端</span>
+                        </a>
+                        <a href="#" className="skill">
+                            <figure>
+                                <img src={Server} alt="Web" />
+                            </figure>
+                            <span>Java 后端</span>
+                        </a>
+                        <a href="#" className="skill">
+                            <figure>
+                                <img src={Think} alt="Web" />
+                            </figure>
+                            <span>ACM 算法</span>
+                        </a>
+                    </div>
                 </section>
                 <section className="container" id="instructor">
                     <h2>指导老师</h2>

@@ -1,0 +1,21 @@
+#member-page {
+
+  .main-content, .side-bar {
+    padding: 0 15px;
+  }
+
+  section {
+    background-color: #f8f8f8;
+
+    h4.section-title {
+      font-size: 22px; /*no*/
+      margin-bottom: 26px;
+    }
+
+  }
+
+  .widget {
+    background-color: #f8f8f8;
+    border-radius: 3px;
+  }
+}

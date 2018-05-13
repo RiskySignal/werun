@@ -1,9 +1,17 @@
 require("./navigation-bar.scss");
+import {Component} from "react";
 
-const { Navbar, NavItem, Nav, NavDropdown, MenuItem } = Bootstrap;
+import {
+    Navbar,
+    NavItem,
+    Nav,
+    NavDropdown,
+    MenuItem
+} from "react-bootstrap";
+
 const werunLogo = require("./werun-fudiao.png");
 
-class NavigationBar extends React.Component {
+class NavigationBar extends Component {
     constructor(props) {
         super(props);
     }
@@ -12,7 +20,7 @@ class NavigationBar extends React.Component {
         return (
             <Navbar fluid id="navigation-bar">
                 <Navbar.Header>
-                    <Navbar.Toggle />
+                    <Navbar.Toggle/>
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
@@ -28,7 +36,7 @@ class NavigationBar extends React.Component {
                     </Nav>
                     <Nav id="logo-item">
                         <NavItem>
-                            <img src={werunLogo} alt="logo" />
+                            <img src={werunLogo} alt="logo"/>
                         </NavItem>
                     </Nav>
                     <Nav>

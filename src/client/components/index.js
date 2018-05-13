@@ -6,5 +6,12 @@
 * @Last Modified by:   Neeze@ZJS
 * @Last Modified time: 2018-01-15
 */
-export LoginBox from "./login-box/login-box.jsx";
-export NavigationBar from "./navigation-bar/navigation-bar";
+import CopyrightBar from "./copyright-bar/copyright-bar";
+import LoginBox from "./login-box/login-box";
+import NavigationBar from "./navigation-bar/navigation-bar";
+
+export {
+    CopyrightBar,
+    LoginBox,
+    NavigationBar
+};

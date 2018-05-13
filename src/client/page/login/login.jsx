@@ -1,8 +1,9 @@
 import {LoginBox} from "../../components/index.js";
+import {Component} from "react";
 
 require("./login.scss");
 
-class Login extends React.Component {
+class LoginPage extends Component {
     constructor(props) {
         super(props);
     }
@@ -16,4 +17,4 @@ class Login extends React.Component {
     }
 }
 
-ReactDOM.render(<Login/>, document.querySelector("#weruntime-root-wrapper"));
+export default LoginPage;

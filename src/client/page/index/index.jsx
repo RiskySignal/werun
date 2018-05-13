@@ -1,6 +1,8 @@
 require("./index.scss");
 
-import { NavigationBar } from "../../components/index";
+import {NavigationBar} from "../../components/index";
+import {Component} from "react";
+import {CopyrightBar} from "../../components/index";
 
 const Logo = require("./logo-werun.png");
 const Team_Kat = require("./team_kat-min.png");
@@ -11,7 +13,7 @@ const Web = require("./web.svg");
 const Server = require("./server.svg");
 const Think = require("./think.svg");
 
-class IndexPage extends React.Component {
+class IndexPage extends Component {
     constructor(props) {
         super(props);
     }
@@ -25,7 +27,7 @@ class IndexPage extends React.Component {
                 <header className="headaer" id="header">
                     <div className="container">
                         <figure className="logo animated fadeInDown">
-                            <img src={Logo} alt="Logo" />
+                            <img src={Logo} alt="Logo"/>
                         </figure>
                         <h1 className="animated fadeInDown delay-07s text-center">
                             WeRun Club
@@ -41,7 +43,7 @@ class IndexPage extends React.Component {
                         </div>
                     </div>
                 </header>
-                <NavigationBar />
+                <NavigationBar/>
                 <section className="container" id="club-life">
                     <h2>club life</h2>
                     <h6>实验室，是一个学生、生活、工作的绝佳圣地</h6>
@@ -65,19 +67,19 @@ class IndexPage extends React.Component {
                     <div className="skills-block clearfix">
                         <a href="#" className="skill">
                             <figure>
-                                <img src={Web} alt="Web" />
+                                <img src={Web} alt="Web"/>
                             </figure>
                             <span>Web 前端</span>
                         </a>
                         <a href="#" className="skill">
                             <figure>
-                                <img src={Server} alt="Web" />
+                                <img src={Server} alt="Web"/>
                             </figure>
                             <span>Java 后端</span>
                         </a>
                         <a href="#" className="skill">
                             <figure>
-                                <img src={Think} alt="Web" />
+                                <img src={Think} alt="Web"/>
                             </figure>
                             <span>ACM 算法</span>
                         </a>
@@ -89,7 +91,7 @@ class IndexPage extends React.Component {
                     <div className="instructor-block clearfix">
                         <div className="instructor-box">
                             <div className="instructor">
-                                <img src={Team_Kat} alt="kat" />
+                                <img src={Team_Kat} alt="kat"/>
                             </div>
                             <h3>朱东杰 老师</h3>
                             <span>移动计算</span>
@@ -97,7 +99,7 @@ class IndexPage extends React.Component {
                         </div>
                         <div className="instructor-box">
                             <div className="instructor">
-                                <img src={Team_Ken} alt="ken" />
+                                <img src={Team_Ken} alt="ken"/>
                             </div>
                             <h3>朱东杰 老师</h3>
                             <span>移动计算</span>
@@ -105,7 +107,7 @@ class IndexPage extends React.Component {
                         </div>
                         <div className="instructor-box">
                             <div className="instructor">
-                                <img src={Team_Vince} alt="vince" />
+                                <img src={Team_Vince} alt="vince"/>
                             </div>
                             <h3>朱东杰 老师</h3>
                             <span>移动计算</span>
@@ -113,7 +115,7 @@ class IndexPage extends React.Component {
                         </div>
                         <div className="instructor-box">
                             <div className="instructor">
-                                <img src={Team_Ken} alt="ken" />
+                                <img src={Team_Ken} alt="ken"/>
                             </div>
                             <h3>朱东杰 老师</h3>
                             <span>移动计算</span>
@@ -121,26 +123,10 @@ class IndexPage extends React.Component {
                         </div>
                     </div>
                 </section>
-                <footer className="footer" id="footer">
-                    <div className="container">
-                        <div className="footer-logo">
-                            <a href="#">
-                                <img src={Logo} alt="werun logo" />
-                            </a>
-                        </div>
-                        <div className="footer-content">
-                            <span>
-                                Copyright © 2018 WeRun Club. All Rights Reserved
-                            </span>
-                        </div>
-                    </div>
-                </footer>
+                <CopyrightBar/>
             </div>
         );
     }
 }
 
-ReactDOM.render(
-    <IndexPage />,
-    document.querySelector("#weruntime-root-wrapper")
-);
+export default IndexPage;

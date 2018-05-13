@@ -20,14 +20,15 @@ const message =
 
 /** devServer options */
 const devServer = {
+    // host: "10.236.26.253",
     port: 8000,
     // if "open" values "true", it will open default web browser for you automatic
     open: false,
     openPage: "./default.html",
     // proxy server to exchange matched request to server node
     proxy: {
-        "/serverPath/*": {
-            target: "http://172.29.131.144:7090/",
+        "/home/*": {
+            target: "http://120.77.212.147:8888/home",
             secure: false
         }
     },
@@ -46,7 +47,10 @@ const devServer = {
 
 const note =
     process.env.CONFIG_ENV === "dev"
-        ? "Your application is running here http://localhost:" + devServer.port
+        ? "Your application is running here http://" +
+        devServer.host +
+        ":" +
+        devServer.port
         : "Your application is builded in 'dist'";
 
 /** resolve options */
@@ -56,10 +60,9 @@ const resolve = {
 
 /** entry options */
 const entry = {
-    login: resolvePath("../../src/client/page/login/login"),
-    index: resolvePath("../../src/client/page/index/index"),
+    index: resolvePath("../../src/client/page/page"),
     default: resolvePath("../../src/client/page/default/default"),
-    react_bundle: ["react", "react-dom", "prop-types"],
+    react_bundle: ["react", "react-dom", "prop-types", "react-router-dom"],
     werun: resolvePath("../../src/plugin/werun.js"),
     bootstrap_bundle: ["react-bootstrap", "bootstrap/dist/css/bootstrap.css"],
     animate: "animate.css",
@@ -160,7 +163,7 @@ const plugins = [
         React: "react",
         ReactDOM: "react-dom",
         PropTypes: "prop-types",
-        Bootstrap: "react-bootstrap"
+        Bootstrap: "react-bootstrap",
     }),
     new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
@@ -177,31 +180,7 @@ const plugins = [
     new HtmlWebpackPlugin({
         showErrors: false,
         template: resolvePath("../../src/client/page/template.html"),
-        filename: "./login.html", // 登陆
-        chunks: [
-            "minireset",
-            "animate",
-            "bootstrap_bundle",
-            "react_bundle",
-            "login"
-        ]
-    }),
-    new HtmlWebpackPlugin({
-        showErrors: false,
-        template: resolvePath("../../src/client/page/template.html"),
-        filename: "./default.html", // 默认测试
-        chunks: [
-            "minireset",
-            "animate",
-            "bootstrap_bundle",
-            "react_bundle",
-            "default"
-        ]
-    }),
-    new HtmlWebpackPlugin({
-        showErrors: false,
-        template: resolvePath("../../src/client/page/template.html"),
-        filename: "./index.html", // 主页
+        filename: "./index.html", // 登陆
         chunks: [
             "minireset",
             "animate",

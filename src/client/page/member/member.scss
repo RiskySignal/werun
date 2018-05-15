@@ -2,20 +2,92 @@
 
   .main-content, .side-bar {
     padding: 0 15px;
+
+    @media (max-width: 768px) {
+      padding: 0 5px;
+
+      section {
+        padding: 10px;
+
+        div.item {
+          max-height: 240px;
+          overflow: hidden;
+        }
+      }
+    }
   }
 
   section {
     background-color: #f8f8f8;
+    padding: 35px;
+    margin-bottom: 30px;
 
     h4.section-title {
       font-size: 22px; /*no*/
       margin-bottom: 26px;
+      padding-left: 2px; /*no*/
     }
 
+    li {
+      padding: 2px 2px; /*no*/
+      display: flex;
+      justify-content: center;
+
+      div.item {
+        display: inline-block;
+        position: relative;
+      }
+
+      div.captionWrapper {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 13.5px 30px;
+        background: url('gridblock_bg.png') repeat;
+      }
+
+      div.heading {
+        color: #ff6600;
+        font-size: 18px; /*no*/
+        line-height: 21px; /*no*/
+      }
+
+      div.text {
+        color: #fff;
+        line-height: 18px; /*no*/
+        font-size: 14px; /*no*/
+      }
+    }
+
+    img {
+      border-radius: 3px;
+    }
   }
 
   .widget {
     background-color: #f8f8f8;
     border-radius: 3px;
+    padding: 35px;
+
+    h4.title {
+      color: #303030;
+      font-size: 21px; /*no*/
+      margin-bottom: 21px;
+      line-height: 23.1px; /*no*/
+      position: relative;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #ebebeb; /*no*/
+
+      &:after {
+        content: '';
+        width: 90px;
+        position: absolute;
+        height: 1px; /*no*/
+        background-color: #f4645f;
+        left: 0;
+        bottom: -1px; /*no*/
+      }
+    }
   }
 }
